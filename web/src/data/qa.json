@@ -1,0 +1,509 @@
+[
+  {
+    "id": "QA-001",
+    "kategoriya": "Bojsiz olib kirish",
+    "savol": "Aeroport orqali qancha summagacha bojsiz tovar olib kirsa bo'ladi?",
+    "savol_variantlari": [
+      "Aeroportda bojsiz limit qancha?",
+      "1000 dollar imtiyoz kimlarga beriladi?"
+    ],
+    "javob": "Jismoniy shaxslar shaxsiy ehtiyoji uchun notijorat maqsadida havo transportida (aeroport orqali) 1000 AQSH dollarigacha bo'lgan tovarlarni bojsiz olib kirishi mumkin. Bu me'yor xorijiy davlatda uch kalendar kundan kam bo'lganda va bir kalendar oyda 3 va undan ortiq marta chegara kesib o'tilganda qo'llanilmaydi.",
+    "kalit_sozlar": [
+      "bojsiz",
+      "1000 dollar",
+      "aeroport",
+      "havo transporti",
+      "olib kirish normasi",
+      "limit"
+    ],
+    "huquqiy_manba": "PQ-4508; VMQ-244"
+  },
+  {
+    "id": "QA-002",
+    "kategoriya": "Bojsiz olib kirish",
+    "savol": "\"Kalendar kun\" nima va imtiyoz qanday hisoblanadi?",
+    "savol_variantlari": [],
+    "javob": "Kalendar kun — kalendar jadvalda belgilangan, uzluksiz 24 soatlik davr (00:00 dan 23:59 gacha), unda hech qanday kun (dam olish, bayram, bank kuni) istisno qilinmaydi. Imtiyoz olish uchun chet davlatda TO'LIQ 3 kun bo'lish kerak. Masalan: 1-yanvar 10:00 da uchib, 5-yanvar 15:00 da qaytsangiz — to'liq 2, 3, 4-yanvar (3 kun) bo'lgan hisoblanasiz va imtiyoz olasiz. 4-yanvarda qaytganingizda imtiyoz qo'llanilmasdi.",
+    "kalit_sozlar": [
+      "kalendar kun",
+      "uch kun",
+      "imtiyoz hisoblash",
+      "3 kun",
+      "misol"
+    ],
+    "huquqiy_manba": "PQ-4508 izohi; Loyiha"
+  },
+  {
+    "id": "QA-003",
+    "kategoriya": "Bojsiz olib kirish",
+    "savol": "\"Kalendar oy\" deganda nima tushuniladi?",
+    "savol_variantlari": [],
+    "javob": "Kalendar oy — kalendar jadvalda belgilangan oy bo'lib, oyning 1-sanasidan so'nggi sanasigacha bo'lgan uzluksiz davr. Masalan, 1-yanvardan 31-yanvargacha.",
+    "kalit_sozlar": [
+      "kalendar oy",
+      "1-31",
+      "davr"
+    ],
+    "huquqiy_manba": "Loyiha; VMQ-244"
+  },
+  {
+    "id": "QA-004",
+    "kategoriya": "Miqdoriy normalar",
+    "savol": "Aeroport orqali alkogol, sigaret, atir kabi tovarlardan qancha olib kirsa bo'ladi?",
+    "savol_variantlari": [
+      "Necha litr alkogol olib kirsa bo'ladi?",
+      "Sigaret normasi qancha?",
+      "Nechta atir olib kirish mumkin?"
+    ],
+    "javob": "Bojsiz olib kirishning miqdoriy normalari: Alkogol mahsuloti (shu jumladan pivo) — 2 litr; Sigaret — 200 dona; Sigara — 5 dona; Tamaki — 100 gramm; Atir va ifor taratuvchi suvlar — 3 dona (har biri 300 ml.dan oshmasligi kerak); Biologik faol qo'shimchalar — 10 ta turli nomdagi (umumiy og'irligi 3 kg dan va har bir nomdagi 1 ta qadoqdan oshmagan holda). Alkogol va tamaki mahsulotlarini 21 yoshga to'lmagan shaxslar olib kirishi taqiqlanadi.",
+    "kalit_sozlar": [
+      "miqdoriy norma",
+      "alkogol",
+      "sigaret",
+      "atir",
+      "tamaki",
+      "2 litr",
+      "200 dona",
+      "biologik faol"
+    ],
+    "huquqiy_manba": "VMQ-244, 1-ilova; Loyiha"
+  },
+  {
+    "id": "QA-005",
+    "kategoriya": "Miqdoriy normalar",
+    "savol": "21 yoshga to'lmaganlar alkogol yoki sigaret olib kira oladimi?",
+    "savol_variantlari": [],
+    "javob": "Yo'q. Alkogol va tamaki (sigaret, sigara, tamaki) mahsulotlarini 21 yoshga to'lmagan jismoniy shaxslar tomonidan olib kirish taqiqlanadi.",
+    "kalit_sozlar": [
+      "21 yosh",
+      "voyaga yetmagan",
+      "alkogol taqiq",
+      "yosh chegarasi"
+    ],
+    "huquqiy_manba": "VMQ-244, 1-ilova izohi"
+  },
+  {
+    "id": "QA-006",
+    "kategoriya": "Tovar maqsadi",
+    "savol": "Notijorat va tijorat maqsadidagi tovar nima bilan farqlanadi?",
+    "savol_variantlari": [],
+    "javob": "Notijorat maqsadli tovarlar — shaxsiy va oilaviy (ota-ona, turmush o'rtog'i, farzandlar) ehtiyoji uchun mo'ljallangan, tadbirkorlik yoki tijorat faoliyati bilan bog'liq bo'lmagan tovarlar. Tijorat maqsadli tovarlar — ishlab chiqarish, tadbirkorlik yoki tijorat faoliyati uchun mo'ljallangan tovarlar.",
+    "kalit_sozlar": [
+      "notijorat",
+      "tijorat",
+      "maqsad",
+      "shaxsiy ehtiyoj",
+      "tovar turi"
+    ],
+    "huquqiy_manba": "Bojxona kodeksi 155-modda; Loyiha"
+  },
+  {
+    "id": "QA-007",
+    "kategoriya": "Tovar maqsadi",
+    "savol": "Bojxona xodimi tovar tijorat maqsadli ekanini qanday aniqlaydi?",
+    "savol_variantlari": [],
+    "javob": "Bojxona mansabdor shaxsi quyidagi mezonlarga asoslanadi: tovarlarning xususiyati (shaxsiy/oilaviy ehtiyojga mosligi); miqdori (bir turdagi tovar ehtiyojdan ortiq bo'lsa, aks isbotlanmaguncha tijorat deb qaraladi); olib o'tishning takroriyligi (bir xil tovar bir necha bor olib kirilsa — biometrik pasportdagi belgi/elektron ma'lumot asosida aniqlanadi); safar holatlari (maqsad, davomiylik, kelish davlati); huquqni muhofaza organlaridan kelgan ma'lumotlar.",
+    "kalit_sozlar": [
+      "tijorat aniqlash",
+      "mezon",
+      "takroriylik",
+      "miqdor",
+      "safar",
+      "xususiyat"
+    ],
+    "huquqiy_manba": "Bojxona kodeksi; Loyiha"
+  },
+  {
+    "id": "QA-008",
+    "kategoriya": "Valyuta",
+    "savol": "O'zbekistonga qancha naqd valyuta olib kirish mumkin?",
+    "savol_variantlari": [
+      "Qancha pul deklaratsiya qilinishi kerak?",
+      "Naqd valyuta chegarasi qancha?"
+    ],
+    "javob": "Naqd valyuta mablag'larini olib kirish miqdori cheklanmagan (bojxona nazorati qoidalariga rioya qilingan holda). Biroq 100 000 000 (yuz million) so'm ekvivalentidan ortiq miqdordagi naqd valyuta yo'lovchi bojxona deklaratsiyasini to'ldirish va bojxona xodimiga taqdim etish yo'li bilan bojxona nazoratidan o'tkaziladi. 100 mln so'mgacha bo'lgan mablag' ham ixtiyoriy deklaratsiya qilinishi mumkin.",
+    "kalit_sozlar": [
+      "valyuta olib kirish",
+      "naqd pul",
+      "100 million",
+      "yuz million",
+      "deklaratsiya",
+      "pul olib kirish"
+    ],
+    "huquqiy_manba": "VMQ-66; Loyiha"
+  },
+  {
+    "id": "QA-009",
+    "kategoriya": "Valyuta",
+    "savol": "O'zbekistondan qancha naqd valyuta olib chiqish mumkin?",
+    "savol_variantlari": [],
+    "javob": "Ekvivalenti 100 000 000 (yuz million) so'mga teng yoki undan oshmaydigan miqdordagi naqd valyutani cheklovlarsiz (bojxona nazorati qoidalariga rioya qilib) olib chiqish mumkin. Belgilangan summadan ortiq miqdordagi naqd valyutani olib chiqishga umumiy tartibda yo'l qo'yilmaydi — faqat maxsus hollarda (Hukumat delegatsiyasi a'zolari; norezidentlar uchun kirishda deklaratsiya qilingan mablag' doirasida; xalqaro musobaqa sovrindorlari; \"Termiz xalqaro savdo markazi\" zargarlik savdosidan olingan valyuta) ruxsat etiladi.",
+    "kalit_sozlar": [
+      "valyuta olib chiqish",
+      "chiqarish",
+      "100 million",
+      "cheklov",
+      "eksport valyuta"
+    ],
+    "huquqiy_manba": "VMQ-66; Loyiha"
+  },
+  {
+    "id": "QA-010",
+    "kategoriya": "Yo'lak tanlash",
+    "savol": "\"Yashil\" va \"qizil\" yo'lak nima va qaysi birini tanlash kerak?",
+    "savol_variantlari": [
+      "Qaysi yo'lakdan o'tishim kerak?",
+      "Yashil yo'lakdan o'tsam bo'ladimi?"
+    ],
+    "javob": "Yashil yo'lak — yozma deklaratsiya talab qilinmaydigan, tovarlar og'zaki deklaratsiyalanadigan joy. Qizil yo'lak — yozma shaklda deklaratsiyalanishi lozim bo'lgan tovarlarni olib o'tish uchun mo'ljallangan joy. Agar sizda taqiqlangan/cheklangan tovar, bojsiz normadan (1000$) ortiq qiymatli yoki yozma deklaratsiya qilinadigan valyuta bo'lsa — QIZIL yo'lakni tanlaysiz. Aks holda yashil yo'lakdan o'tasiz.",
+    "kalit_sozlar": [
+      "yashil yo'lak",
+      "qizil yo'lak",
+      "yo'lak tanlash",
+      "deklaratsiya",
+      "kanal"
+    ],
+    "huquqiy_manba": "VMQ-814; Loyiha"
+  },
+  {
+    "id": "QA-011",
+    "kategoriya": "Yo'lak tanlash",
+    "savol": "Yashil yo'lakdan noto'g'ri o'tsam nima bo'ladi?",
+    "savol_variantlari": [],
+    "javob": "Agar yashil yo'lakdan o'tuvchi shaxsda taqiqlangan/cheklangan yoki bojsiz normadan hamda yozma deklaratsiya qilinadigan valyuta normasidan ortiq tovarlar aniqlansa, bunday shaxs O'zbekiston Respublikasining amaldagi qonunchiligiga muvofiq javobgarlikka tortiladi. Gumon bo'lganda bojxona xodimi nazorat shakllarini qo'llash huquqiga ega.",
+    "kalit_sozlar": [
+      "yashil yo'lak jazo",
+      "javobgarlik",
+      "noto'g'ri yo'lak",
+      "buzilish"
+    ],
+    "huquqiy_manba": "VMQ-814; Loyiha"
+  },
+  {
+    "id": "QA-012",
+    "kategoriya": "Deklaratsiya",
+    "savol": "Yo'lovchi bojxona deklaratsiyasi qaysi hollarda to'ldiriladi?",
+    "savol_variantlari": [],
+    "javob": "Deklaratsiya quyidagilar uchun to'ldiriladi: bojsiz normadan oshadigan tovarlar; yashash joyi o'zgarganda shaxsiy mol-mulk (avtotransportdan tashqari); Bojxona kodeksi 158, 160-moddalaridagi hollarda transport vositalari; yozma deklaratsiya qilinadigan naqd valyuta; olib chiqish normasidan oshadigan tovarlar; alohida kuzatib boriladigan bagajdagi tovarlar; mobil qurilmalar (O'zbekistonda sotib olingan va UZIMEI da ro'yxatdan o'tganlar mustasno); taqiq va cheklovlar belgilangan tovarlar.",
+    "kalit_sozlar": [
+      "deklaratsiya",
+      "qachon to'ldiriladi",
+      "yo'lovchi deklaratsiyasi",
+      "declaration"
+    ],
+    "huquqiy_manba": "Bojxona kodeksi 259-modda; DBQ-2606; Loyiha"
+  },
+  {
+    "id": "QA-013",
+    "kategoriya": "Deklaratsiya",
+    "savol": "Deklaratsiyani necha yoshdan boshlab to'ldirish kerak?",
+    "savol_variantlari": [],
+    "javob": "Deklaratsiya 16 yoshga to'lgan shaxslar tomonidan Davlat chegarasidagi o'tkazish punktlari orqali bojxona chegarasini kesib o'tayotganda tovar(lar) bilan bir vaqtda taqdim etiladi. Deklaratsiya qog'oz shaklda yoki elektron shaklda to'ldiriladi.",
+    "kalit_sozlar": [
+      "16 yosh",
+      "deklaratsiya yoshi",
+      "elektron deklaratsiya",
+      "qog'oz"
+    ],
+    "huquqiy_manba": "Bojxona kodeksi; Loyiha"
+  },
+  {
+    "id": "QA-014",
+    "kategoriya": "Mobil qurilma",
+    "savol": "Chet eldan qancha telefon olib kirish mumkin?",
+    "savol_variantlari": [
+      "Nechta telefon olib kirsam bo'ladi?",
+      "Telefonni deklaratsiya qilish kerakmi?"
+    ],
+    "javob": "Aviatsiya o'tkazish punktlari orqali telefon apparati, shu jumladan mobil aloqa moduliga ega telefonlar va qurilmalar — chegarani har bir kesib o'tishda (kelishda) 2 dona olib o'tish mumkin. Bojsiz normadan qat'iy nazar mobil qurilmalar deklaratsiyalanishi lozim (O'zbekistonda sotib olingan va UZIMEI tizimida ro'yxatga olingan qurilmalar mustasno).",
+    "kalit_sozlar": [
+      "telefon",
+      "mobil qurilma",
+      "2 dona telefon",
+      "IMEI",
+      "necha telefon"
+    ],
+    "huquqiy_manba": "VMQ-244; PQ-4508; Loyiha"
+  },
+  {
+    "id": "QA-015",
+    "kategoriya": "Mobil qurilma",
+    "savol": "IMEI ni qanday ro'yxatdan o'tkazaman?",
+    "savol_variantlari": [],
+    "javob": "Mobil qurilma deklaratsiyada (yo'lovchi yoki jo'natmalar deklaratsiyasida) ko'rsatilgan bo'lsa, IMEI ni ro'yxatdan o'tkazish mumkin. Bojxonada rasmiylashtirilganlik holatini uzimei.customs.uz sayti orqali tekshirasiz. Agar qurilma rasmiylashtirilmagan bo'lsa, imei.customs.uz sayti orqali ariza qoldirasiz (umumiy qiymatidan yagona bojxona to'lovi undiriladi).",
+    "kalit_sozlar": [
+      "IMEI ro'yxat",
+      "uzimei",
+      "imei.customs.uz",
+      "rasmiylashtirish",
+      "telefon ro'yxatdan o'tkazish"
+    ],
+    "huquqiy_manba": "Loyiha"
+  },
+  {
+    "id": "QA-016",
+    "kategoriya": "Dori vositalari",
+    "savol": "Chet eldan shaxsiy dori-darmonlarni olib kirsam bo'ladimi?",
+    "savol_variantlari": [
+      "Qancha dori olib kirsa bo'ladi?",
+      "Dori olib kirishga hujjat kerakmi?"
+    ],
+    "javob": "Ha. Yashash yoki bo'lish mamlakati tibbiyot muassasasi hujjatisiz shaxsiy foydalanish uchun: turli nomdagi 10 tagacha dori preparati (har biri uchun 5 o'ramdan ortiq bo'lmagan) va 5 birlikdan ortiq bo'lmagan tibbiy buyum olib kirish mumkin. Dorilar ishlab chiqaruvchining o'ramida bo'lishi kerak. Bir o'ramdagi cheklovlar: qattiq shakllar — 100 birlikkacha; eritma kukunlari — 500 g gacha; gomeopatik granulalar — 50 g gacha; infuzion/oral eritmalar — 500 ml gacha; inyeksiya eritmalari — 10 ampula/flakongacha; tashqi dorilar — 200 ml yoki 200 g gacha.",
+    "kalit_sozlar": [
+      "dori",
+      "dori-darmon",
+      "tibbiy buyum",
+      "10 preparat",
+      "shaxsiy dori",
+      "medicine"
+    ],
+    "huquqiy_manba": "VMQ-191; Loyiha"
+  },
+  {
+    "id": "QA-017",
+    "kategoriya": "Dori vositalari",
+    "savol": "Tarkibida giyohvandlik yoki psixotrop modda bo'lgan dorilarni olib kirish mumkinmi?",
+    "savol_variantlari": [],
+    "javob": "Giyohvandlik vositalarini 7 sutkalik ehtiyojdan ortiq bo'lmagan miqdorda olib kirishga — yashash/bo'lish mamlakati tibbiyot muassasasi bergan, davolash kursi ko'rsatilgan hujjat bo'lganda ruxsat beriladi. Psixotrop moddalarni hujjatsiz — turli nomdagi 5 tagacha davolash preparati (har biridan 2 o'ramdan ortiq bo'lmagan) davolash kursi doirasida olib kirish mumkin.",
+    "kalit_sozlar": [
+      "giyohvandlik",
+      "psixotrop",
+      "retsept",
+      "7 sutka",
+      "kuchli dori",
+      "hujjat"
+    ],
+    "huquqiy_manba": "VMQ-191; Loyiha"
+  },
+  {
+    "id": "QA-018",
+    "kategoriya": "Taqiqlangan tovarlar",
+    "savol": "Qanday tovarlarni O'zbekistonga umuman olib kirish taqiqlanadi?",
+    "savol_variantlari": [],
+    "javob": "Taqiqlangan tovarlarga quyidagilar kiradi: giyohvandlik vositalari va psixotrop moddalar (I ro'yxat); portlovchi materiallar va masofadan boshqariladigan qurilmalar; pul yutug'i bo'lgan o'yin avtomatlari; II xavflilik toifasidagi pirotexnika; portativ lazerli nur tarqatuvchilar; ishlatilgan induksion pechlar; nikotin iste'mol qiladigan/oshiradigan mahsulotlar (tamaki o'rnini bosuvchilar); nodavlat ekspertizasidan o'tmagan diniy materiallar va boshqalar. To'liq ro'yxat huquqiy manbalar bilan alohida jadvalda keltirilgan.",
+    "kalit_sozlar": [
+      "taqiqlangan",
+      "man qilingan",
+      "olib kirish taqiq",
+      "giyohvandlik",
+      "portlovchi",
+      "pirotexnika"
+    ],
+    "huquqiy_manba": "VMQ-330/213/176/309/50/999/180; O'RQ-844"
+  },
+  {
+    "id": "QA-019",
+    "kategoriya": "Taqiqlangan tovarlar",
+    "savol": "Qurol olib kirish mumkinmi?",
+    "savol_variantlari": [],
+    "javob": "Fuqaroviy qurol va uning o'q-dorilari cheklangan tovar — IIV (Ichki ishlar vazirligi) ruxsatnomasi talab etiladi, vaqtincha olib kirish tartibi mavjud. O'zini o'zi himoya qilish quroli chet el fuqarolari va fuqaroligi bo'lmagan shaxslar tomonidan olib kirilishi taqiqlanadi.",
+    "kalit_sozlar": [
+      "qurol",
+      "o'q-dori",
+      "IIV ruxsat",
+      "himoya quroli",
+      "weapon"
+    ],
+    "huquqiy_manba": "O'RQ-550, 31-32-modda; VMQ-366"
+  },
+  {
+    "id": "QA-020",
+    "kategoriya": "Taqiqlangan tovarlar",
+    "savol": "Diniy adabiyot yoki materiallarni olib kirsam bo'ladimi?",
+    "savol_variantlari": [],
+    "javob": "Diniy mazmundagi materiallar cheklangan — ijobiy dinshunoslik ekspertizasi xulosasi talab etiladi (Din ishlari bo'yicha qo'mita). Ijobiy xulosasi olinmagan va gologramma bilan tasdiqlanmagan diniy materiallar taqiqlangan hisoblanadi.",
+    "kalit_sozlar": [
+      "diniy material",
+      "diniy adabiyot",
+      "kitob",
+      "dinshunoslik ekspertiza",
+      "gologramma"
+    ],
+    "huquqiy_manba": "VMQ-180, Nizom"
+  },
+  {
+    "id": "QA-021",
+    "kategoriya": "Olib chiqish",
+    "savol": "O'zbekistondan qancha summagacha tovar bojsiz olib chiqsa bo'ladi?",
+    "savol_variantlari": [
+      "Chiqishda bojsiz limit qancha?",
+      "5000 dollargacha olib chiqsam bo'ladimi?"
+    ],
+    "javob": "Jismoniy shaxslar qiymati 5 000 AQSH dollari ekvivalentigacha bo'lgan tovarlarni bojxona deklaratsiyasini taqdim etmagan holda respublikadan olib chiqishi mumkin (eksport bojxona boji stavkalari belgilangan tovarlar bundan mustasno).",
+    "kalit_sozlar": [
+      "olib chiqish",
+      "5000 dollar",
+      "eksport",
+      "bojsiz chiqarish",
+      "chiqarish normasi"
+    ],
+    "huquqiy_manba": "PQ-4508; Loyiha"
+  },
+  {
+    "id": "QA-022",
+    "kategoriya": "Olib chiqish",
+    "savol": "O'zbekistondan oziq-ovqat mahsulotlarini olib chiqishda cheklov bormi?",
+    "savol_variantlari": [],
+    "javob": "Ha, ayrim oziq-ovqatlarni bojsiz olib chiqishning miqdoriy normalari bor: Guruch — 3 kg gacha; Non-bulka mahsulotlari — 5 kg gacha; Go'sht va go'sht mahsulotlari — 2 kg gacha; Shakar — 2 kg gacha; O'simlik yog'i — 2 kg gacha; Yangi meva-sabzavot, uzum, poliz, dukkakli va quritilgan meva-sabzavot — jami 40 kg gacha.",
+    "kalit_sozlar": [
+      "oziq-ovqat chiqarish",
+      "guruch",
+      "go'sht",
+      "shakar",
+      "meva sabzavot",
+      "40 kg",
+      "chiqish normasi"
+    ],
+    "huquqiy_manba": "VMQ-244; Loyiha"
+  },
+  {
+    "id": "QA-023",
+    "kategoriya": "Olib chiqish",
+    "savol": "Zargarlik buyumlarini olib chiqishda qanday cheklov bor?",
+    "savol_variantlari": [
+      "Qancha oltin olib chiqsa bo'ladi?",
+      "Zargarlikni deklaratsiya qilish kerakmi?"
+    ],
+    "javob": "Jismoniy shaxslar og'irligi 200 grammgacha kumushdan va 65 grammgacha oltin hamda boshqa qimmatbaho metallardan yasalgan tayyor zargarlik buyumlarini yo'lovchi bojxona deklaratsiyasini to'ldirmasdan olib chiqishi mumkin. Bu miqdordan ortiq bo'lsa — yo'lovchi bojxona deklaratsiyasi asosida olib chiqiladi.",
+    "kalit_sozlar": [
+      "zargarlik",
+      "oltin",
+      "kumush",
+      "200 gramm",
+      "65 gramm",
+      "zebu-ziynat",
+      "jewelry"
+    ],
+    "huquqiy_manba": "PF-104; Loyiha"
+  },
+  {
+    "id": "QA-024",
+    "kategoriya": "Pochta va kuryer",
+    "savol": "Xalqaro pochta va kuryerlik jo'natmalari orqali qancha summagacha bojsiz olib kirish mumkin?",
+    "savol_variantlari": [
+      "Posilkada bojsiz limit qancha?",
+      "Kuryer orqali qancha olsa bo'ladi?"
+    ],
+    "javob": "Xalqaro kuryerlik jo'natmalari orqali — 200 AQSH dollari; xalqaro pochta jo'natmalari orqali — 100 AQSH dollari bojsiz olib kirish normasi belgilangan. Kuryerlik jo'natmalari uchun bu norma bir kalendar oy davomida qo'llaniladi.",
+    "kalit_sozlar": [
+      "pochta",
+      "kuryer",
+      "jo'natma",
+      "200 dollar",
+      "100 dollar",
+      "posilka",
+      "buyurtma"
+    ],
+    "huquqiy_manba": "VMQ-700; Loyiha"
+  },
+  {
+    "id": "QA-025",
+    "kategoriya": "Pochta va kuryer",
+    "savol": "Pochta orqali alkogol yoki sigaret buyurtma qilsam bo'ladimi?",
+    "savol_variantlari": [],
+    "javob": "Yo'q. Alkogol va tamaki mahsulotlarini xalqaro pochta va kuryerlik jo'natmalari orqali olib kirish taqiqlanadi. Boshqa tovarlar uchun miqdoriy normalar (atir 3 dona, biologik faol qo'shimchalar 10 ta va h.k.) qo'llaniladi.",
+    "kalit_sozlar": [
+      "pochta alkogol",
+      "kuryer sigaret",
+      "taqiq jo'natma",
+      "buyurtma taqiq"
+    ],
+    "huquqiy_manba": "VMQ-700; Loyiha"
+  },
+  {
+    "id": "QA-026",
+    "kategoriya": "Pochta va kuryer",
+    "savol": "Nomimga kelgan kuryerlik jo'natmasini qanday tasdiqlayman yoki rad etaman?",
+    "savol_variantlari": [],
+    "javob": "Jo'natmalar deklaratsiyasi tizimda ro'yxatga olingach, har bir kuryerlik jo'natmasi bo'yicha xabarnoma Yagona interaktiv davlat xizmatlari portali (YIDXP) yoki bojxona mobil ilovasi orqali avtomatik yuboriladi. Siz ixtiyoriy ravishda YIDXP, mobil ilova yoki eng yaqin bojxona organiga murojaat qilib xabarnomani tasdiqlaysiz yoki rad etasiz. Xavf darajasi past/o'rta jo'natmalar uchun bu ixtiyoriy, yuqori bo'lsa majburiy. Rad etish — jo'natma sizga tegishli emasligini bildiradi.",
+    "kalit_sozlar": [
+      "jo'natma tasdiqlash",
+      "rad etish",
+      "xabarnoma",
+      "YIDXP",
+      "mobil ilova",
+      "kuryer tasdiq"
+    ],
+    "huquqiy_manba": "VMQ-700; Loyiha"
+  },
+  {
+    "id": "QA-027",
+    "kategoriya": "Bojxona to'lovi",
+    "savol": "Bojsiz normadan oshgan tovarga qancha bojxona to'lovi to'lanadi?",
+    "savol_variantlari": [
+      "Bojxona solig'i qanday hisoblanadi?",
+      "Ortiqcha tovarga qancha to'layman?"
+    ],
+    "javob": "Yagona bojxona to'lovi faqat cheklangan me'yordan ORTGAN qismga nisbatan, bojxona qiymatidan kelib chiqib undiriladi. Stavka: tovarning bojxona qiymatidan 30 foiz, lekin har bir kilogrami uchun 3 AQSH dollaridan kam bo'lmagan miqdorda (qaysi biri ko'p bo'lsa — o'sha olinadi). Bunga qo'shimcha BHM ning 25% (BHM = 412 000 so'm) o'sha kungi kurs bo'yicha hisoblab qo'shiladi.",
+    "kalit_sozlar": [
+      "bojxona to'lovi",
+      "hisoblash",
+      "30 foiz",
+      "3 dollar kg",
+      "BHM",
+      "soliq",
+      "to'lov"
+    ],
+    "huquqiy_manba": "Loyiha; VMQ-244"
+  },
+  {
+    "id": "QA-028",
+    "kategoriya": "Bojxona to'lovi",
+    "savol": "Jo'natma (posilka) uchun bojxona to'lovi qanday hisoblanadi?",
+    "savol_variantlari": [],
+    "javob": "Bir kalendar oydagi umumiy jo'natma summasidan 200$ imtiyoz ayriladi. Qolgan (200$ dan ortiq) qism qiymatiga yetkazib berish harajati va vazn nisbati qo'shilib bojxona qiymati aniqlanadi. So'ng bojxona qiymatidan 30% (yoki har kg uchun 3$ — qaysi ko'p bo'lsa) + BHM ning 25% (BHM = 412 000 so'm) o'sha kungi kurs bo'yicha undiriladi.",
+    "kalit_sozlar": [
+      "jo'natma to'lovi",
+      "posilka soliq",
+      "200 dollar imtiyoz",
+      "kalkulyator",
+      "yetkazib berish"
+    ],
+    "huquqiy_manba": "Loyiha"
+  },
+  {
+    "id": "QA-029",
+    "kategoriya": "Bog'lanish",
+    "savol": "Toshkent aeroporti bojxonasi bilan qanday bog'lansam bo'ladi?",
+    "savol_variantlari": [],
+    "javob": "\"Toshkent-AERO\" IBK: Tel. 55-502-86-30; E-manzil: toshkent_aero@customs.uz; Manzil: Toshkent shahar, Sergeli tumani, Qumariq ko'chasi, 13/1. Ichki raqamlar: Bojxona nazorati 41-35/36/37; Valyuta nazorati 41-41; Bojxona to'lovlari 41-31/32/33; TIFTN ekspert 41-39; IMEI guruhi 41-92/84.",
+    "kalit_sozlar": [
+      "bog'lanish",
+      "telefon",
+      "aeroport bojxona",
+      "kontakt",
+      "manzil",
+      "aloqa"
+    ],
+    "huquqiy_manba": "Loyiha"
+  },
+  {
+    "id": "QA-030",
+    "kategoriya": "Umumiy tushunchalar",
+    "savol": "Bojxona hududi va bojxona chegarasi nima?",
+    "savol_variantlari": [],
+    "javob": "O'zbekiston Respublikasining quruqlikdagi hududi, hududiy va ichki suvlari hamda ular ustidagi havo hududi bojxona hududini tashkil etadi. Hududda erkin bojxona zonalari va erkin omborlar bo'lishi mumkin. Bojxona hududining sarhadlari O'zbekiston Respublikasining bojxona chegarasi hisoblanadi.",
+    "kalit_sozlar": [
+      "bojxona hududi",
+      "bojxona chegarasi",
+      "erkin zona",
+      "hudud"
+    ],
+    "huquqiy_manba": "Bojxona kodeksi 5-modda"
+  },
+  {
+    "id": "QA-031",
+    "kategoriya": "Umumiy tushunchalar",
+    "savol": "Bojxona nazoratining qanday shakllari mavjud?",
+    "savol_variantlari": [],
+    "javob": "Bojxona nazorati shakllariga quyidagilar kiradi: hujjatlarni va ma'lumotlarni tekshirish; og'zaki so'rov; axborot olish; bojxona ko'zdan kechiruvi; tovarlarning tamg'alanishini tekshirish; bojxona ko'rigi; shaxsiy ko'rik. Bu shakllar Bojxona kodeksining 188-196-moddalarida belgilangan.",
+    "kalit_sozlar": [
+      "bojxona nazorati",
+      "ko'rik",
+      "tekshirish",
+      "shaxsiy ko'rik",
+      "nazorat shakllari"
+    ],
+    "huquqiy_manba": "Bojxona kodeksi 188-196-modda"
+  }
+]

@@ -4,6 +4,26 @@
 
 Multilingual customs voice-assistant website (kiosk-style) for the TOSHKENT-AERO specialized customs complex, built with React + Vite from the Claude Design handoff (`Sora Veb-sayt.html`).
 
+## Bilim bazasi va AI javoblar
+
+Sayt **Bojxona bilim bazasi** ustida ishlaydigan, brauzer ichidagi (serversiz)
+qidiruv/AI dvigateliga ega. Foydalanuvchi savolini bazadagi savollar, savol
+variantlari va kalit so'zlarga solishtirib, aynan tekshirilgan huquqiy javobni
+huquqiy manba bilan qaytaradi — javoblar to'qib chiqarilmaydi.
+
+- `web/src/data/qa.json` — 31 ta savol-javob juftligi (huquqiy manba bilan)
+- `web/src/data/kb.json` — 49 ta bilim bo'lagi (qo'shimcha izoh uchun)
+- `web/src/data/prohibited.json` — 31 ta taqiqlangan/cheklangan tovar (cheklov, manba, URL)
+- `web/src/lib/search.js` — normalizatsiya + skorlash dvigateli (`answerQuestion`)
+
+Savol berish: matn yozib **Enter** yoki mikrofon tugmasi (Chrome/Edge'da Web Speech
+API orqali ovozli savol). Javob topilmasa, ko'p so'raladigan savollar taklif etiladi.
+Barcha ma'lumot ilovaga jamlanadi — internet yoki API kalit talab qilinmaydi.
+
+> Kelajakdagi kengaytma: haqiqiy generativ LLM (masalan Claude API) ni qo'shish uchun
+> maxfiy API kalitni saqlaydigan kichik backend (serverless funksiya) kerak bo'ladi;
+> `search.js` topgan bo'laklarni LLM ga kontekst sifatida berish mumkin (RAG).
+
 ## Screens
 
 1. **Bosh sahifa (Home)** — brand lockup, animated particle-sphere orb with the customs emblem, rotating multilingual greeting, "Boshlash · Start" CTA.

@@ -1,0 +1,394 @@
+[
+  {
+    "id": "KB-001",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Bojsiz olib kirish me'yori",
+    "matn": "Jismoniy shaxslar tomonidan shaxsiy ehtiyoji uchun notijorat maqsadida respublikaga havo transportida olib kiriladigan tovarlarning bojsiz olib kirish normasi 1000 AQSH dollari etib belgilangan. Bu me'yor xorijiy davlatda uch kalendar kundan kam bo'lganda va bir kalendar oyda 3 va undan ortiq marta bo'lganda qo'llanilmaydi.",
+    "huquqiy_manba": "PQ-4508; VMQ-244",
+    "url": ""
+  },
+  {
+    "id": "KB-002",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Kalendar kun va kalendar oy ta'rifi",
+    "matn": "Kalendar kun — kalendar jadvalda belgilangan, uzluksiz 24 soatlik davr (00:00–23:59), unda dam olish/bayram/bank kunlari istisno qilinmaydi. Imtiyoz uchun chet davlatda to'liq 3 kun bo'lish shart. Kalendar oy — oyning 1-sanasidan so'nggi sanasigacha bo'lgan davr (masalan, 1–31-yanvar).",
+    "huquqiy_manba": "PQ-4508 izohi",
+    "url": ""
+  },
+  {
+    "id": "KB-003",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Miqdoriy normalar (kirish)",
+    "matn": "Bojsiz olib kiriladigan miqdoriy normalar: alkogol (pivo bilan) — 2 litr; sigaret — 200 dona; sigara — 5 dona; tamaki — 100 g; atir/ifor suvlari — 3 dona (har biri 300 ml gacha); biologik faol qo'shimchalar — 10 ta turli nomdagi (jami 3 kg gacha, har nomdan 1 qadoq). Alkogol va tamakini 21 yoshgacha shaxslar olib kira olmaydi.",
+    "huquqiy_manba": "VMQ-244, 1-ilova",
+    "url": ""
+  },
+  {
+    "id": "KB-004",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Notijorat va tijorat maqsad ta'rifi",
+    "matn": "Notijorat maqsadli tovarlar — shaxsiy, oilaviy (ota-ona, turmush o'rtog'i, farzandlar) ehtiyoji uchun, tijorat faoliyati bilan bog'liq bo'lmagan tovarlar. Tijorat maqsadli — ishlab chiqarish, tadbirkorlik yoki tijorat faoliyati uchun mo'ljallangan tovarlar.",
+    "huquqiy_manba": "Bojxona kodeksi 155-modda",
+    "url": ""
+  },
+  {
+    "id": "KB-005",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Tovar maqsadini aniqlash mezonlari",
+    "matn": "Bojxona xodimi maqsadni aniqlashda: tovar xususiyati; miqdori (ehtiyojdan ortiq bir turdagi tovar tijorat deb qaraladi); olib o'tish takroriyligi (biometrik pasport belgisi/elektron ma'lumot asosida); safar holatlari (maqsad, davomiylik, davlat); huquqni muhofaza organlari ma'lumotlariga asoslanadi.",
+    "huquqiy_manba": "Bojxona kodeksi 156-modda",
+    "url": ""
+  },
+  {
+    "id": "KB-006",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Valyuta olib kirish",
+    "matn": "Naqd valyuta olib kirish cheklanmagan miqdorda amalga oshiriladi. 100 000 000 so'm ekvivalentidan ortiq naqd valyuta yo'lovchi bojxona deklaratsiyasi orqali bojxona nazoratidan o'tkaziladi. 100 mln so'mgacha bo'lgan mablag' ham ixtiyoriy deklaratsiya qilinishi mumkin.",
+    "huquqiy_manba": "VMQ-66",
+    "url": ""
+  },
+  {
+    "id": "KB-007",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Yashil va qizil yo'lak",
+    "matn": "Yashil yo'lak — tovarlar og'zaki deklaratsiyalanadigan joy. Qizil yo'lak — yozma deklaratsiya qilinadigan tovarlarni olib o'tish joyi. Taqiqlangan/cheklangan tovar, bojsiz normadan ortiq qiymat yoki yozma deklaratsiya qilinadigan valyuta bo'lsa — qizil yo'lak tanlanadi. Noto'g'ri yashil yo'lakdan o'tish javobgarlikka sabab bo'ladi.",
+    "huquqiy_manba": "VMQ-814",
+    "url": ""
+  },
+  {
+    "id": "KB-008",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Mobil qurilmalarni rasmiylashtirish",
+    "matn": "Mobil qurilmalar bojsiz normadan qat'iy nazar deklaratsiyalanishi lozim (O'zbekistonda sotib olingan va UZIMEI da ro'yxatdan o'tganlar mustasno). Telefon — chegarani har kesib o'tishda 2 dona. Holatni uzimei.customs.uz da tekshiriladi; rasmiylashtirilmagan bo'lsa imei.customs.uz orqali ariza beriladi (yagona bojxona to'lovi undiriladi).",
+    "huquqiy_manba": "VMQ-244; Loyiha",
+    "url": ""
+  },
+  {
+    "id": "KB-009",
+    "kategoriya": "Aeroport / Kirish",
+    "sarlavha": "Dori vositalari va tibbiy buyumlar",
+    "matn": "Hujjatsiz shaxsiy foydalanish uchun: 10 tagacha turli nomdagi dori (har biridan 5 o'ramgacha) va 5 birlikkacha tibbiy buyum. Bir o'ram cheklovi: qattiq shakllar 100 birlik; eritma kukuni 500 g; gomeopatik granula 50 g; infuzion/oral eritma 500 ml; inyeksiya 10 ampula/flakon; tashqi dori 200 ml/200 g. Giyohvandlik — 7 sutkalik ehtiyoj (hujjat bilan); psixotrop — 5 nomgacha (har biridan 2 o'ram).",
+    "huquqiy_manba": "VMQ-191",
+    "url": ""
+  },
+  {
+    "id": "KB-010",
+    "kategoriya": "Aeroport / Chiqish",
+    "sarlavha": "Bojsiz olib chiqish",
+    "matn": "Qiymati 5 000 AQSH dollari ekvivalentigacha bo'lgan tovarlar bojxona deklaratsiyasisiz olib chiqilishi mumkin (eksport boji belgilangan tovarlar mustasno). Bu doiradagi tijorat tovarlari statistik hisobga olinadi.",
+    "huquqiy_manba": "PQ-4508",
+    "url": ""
+  },
+  {
+    "id": "KB-011",
+    "kategoriya": "Aeroport / Chiqish",
+    "sarlavha": "Olib chiqishda oziq-ovqat miqdoriy normalari",
+    "matn": "Bojsiz olib chiqish normalari: guruch 3 kg; non-bulka 5 kg; go'sht mahsulotlari 2 kg; shakar 2 kg; o'simlik yog'i 2 kg; yangi/quritilgan meva-sabzavot, uzum, poliz, dukkakli — jami 40 kg gacha.",
+    "huquqiy_manba": "VMQ-244",
+    "url": ""
+  },
+  {
+    "id": "KB-012",
+    "kategoriya": "Aeroport / Chiqish",
+    "sarlavha": "Valyuta olib chiqish",
+    "matn": "100 000 000 so'm ekvivalentigacha naqd valyuta cheklovlarsiz olib chiqiladi. Undan ortig'iga umumiy tartibda yo'l qo'yilmaydi; istisnolar: Hukumat delegatsiyasi a'zolari; norezidentlar uchun kirishda deklaratsiya qilingan mablag'; xalqaro musobaqa sovrindorlari; Termiz xalqaro savdo markazidagi zargarlik savdosidan olingan valyuta.",
+    "huquqiy_manba": "VMQ-66",
+    "url": ""
+  },
+  {
+    "id": "KB-013",
+    "kategoriya": "Aeroport / Chiqish",
+    "sarlavha": "Zargarlik buyumlarini olib chiqish",
+    "matn": "200 grammgacha kumush va 65 grammgacha oltin va boshqa qimmatbaho metall tayyor zargarlik buyumlari deklaratsiyasiz olib chiqiladi; ortiq bo'lsa — yo'lovchi bojxona deklaratsiyasi asosida.",
+    "huquqiy_manba": "PF-104",
+    "url": ""
+  },
+  {
+    "id": "KB-014",
+    "kategoriya": "Pochta va kuryer",
+    "sarlavha": "Bojsiz olib kirish normalari",
+    "matn": "Xalqaro kuryerlik jo'natmalari orqali — 200 AQSH dollari; xalqaro pochta jo'natmalari orqali — 100 AQSH dollari. Kuryerlik normasi bir kalendar oy davomida qo'llaniladi. Miqdoriy normalar aeroportdagi kabi; alkogol va tamakini pochta/kuryer orqali olib kirish taqiqlanadi.",
+    "huquqiy_manba": "VMQ-700",
+    "url": ""
+  },
+  {
+    "id": "KB-015",
+    "kategoriya": "Pochta va kuryer",
+    "sarlavha": "Jo'natmani tasdiqlash yoki rad etish",
+    "matn": "Jo'natma tizimda ro'yxatga olingach, xabarnoma YIDXP yoki bojxona mobil ilovasi orqali avtomatik yuboriladi. Qabul qiluvchi ixtiyoriy ravishda tasdiqlaydi yoki rad etadi (past/o'rta xavf — ixtiyoriy, yuqori xavf — majburiy). Rad etish jo'natma sizga tegishli emasligini bildiradi.",
+    "huquqiy_manba": "VMQ-700",
+    "url": ""
+  },
+  {
+    "id": "KB-016",
+    "kategoriya": "Bojxona to'lovi",
+    "sarlavha": "Yagona bojxona to'lovi (aeroport)",
+    "matn": "Yagona bojxona to'lovi cheklangan me'yordan ortgan qismga nisbatan, bojxona qiymatidan undiriladi: qiymatdan 30%, lekin har kg uchun 3 AQSH dollaridan kam bo'lmagan (qaysi ko'p bo'lsa) + BHM ning 25% (BHM = 412 000 so'm), o'sha kungi kurs bo'yicha so'mda hisoblanadi. 1000$ gacha imtiyoz.",
+    "huquqiy_manba": "VMQ-244; Loyiha",
+    "url": ""
+  },
+  {
+    "id": "KB-017",
+    "kategoriya": "Bojxona to'lovi",
+    "sarlavha": "Jo'natma bo'yicha to'lov hisobi",
+    "matn": "Bir kalendar oydagi umumiy jo'natma summasidan 200$ imtiyoz ayriladi; 200$ dan ortiq qism qiymatiga vazn va yetkazib berish harajati nisbat qilib qo'shilib bojxona qiymati aniqlanadi; keyin 30% (yoki kg uchun 3$) + BHM 25% undiriladi.",
+    "huquqiy_manba": "Loyiha",
+    "url": ""
+  },
+  {
+    "id": "KB-018",
+    "kategoriya": "Bog'lanish",
+    "sarlavha": "Toshkent aeroporti bojxona kontaktlari",
+    "matn": "\"Toshkent-AERO\" IBK: tel. 55-502-86-30; e-manzil toshkent_aero@customs.uz; manzil: Toshkent sh., Sergeli tumani, Qumariq ko'chasi 13/1. Ichki: bojxona nazorati 41-35/36/37; valyuta nazorati 41-41; to'lovlar 41-31/32/33; TIFTN ekspert 41-39; IMEI 41-92/84.",
+    "huquqiy_manba": "Loyiha",
+    "url": ""
+  },
+  {
+    "id": "KB-019",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Alkogol mahsulotlari, shu jumladan pivo — Cheklangan; ayrim hollarda taqiqlangan",
+    "matn": "Alkogol mahsulotlari, shu jumladan pivo. Holati: Cheklangan; ayrim hollarda taqiqlangan. Cheklov/ruxsat: 2 litr. 21 yoshga toʻlmaganlar tomonidan hamda xalqaro pochta va kuryerlik joʻnatmalari orqali olib kirish taqiqlanadi. Meʼyordan ortiq qismga yagona bojxona toʻlovi ikki baravar undiriladi.. Vakolatli organ/oqibat: Bojxona organlari; taqiq buzilgandagi alohida sanksiya turi ushbu bandda aniqlanmagan. 1.",
+    "huquqiy_manba": "VMQ 244-son, 1-ilova, 1-pozitsiya",
+    "url": "https://lex.uz/uz/docs/-7484114"
+  },
+  {
+    "id": "KB-020",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Tamaki mahsulotlari: 200 sigaret / 5 sigara / 100 g tamaki — Cheklangan; ayrim hollarda taqiqlangan",
+    "matn": "Tamaki mahsulotlari: 200 sigaret / 5 sigara / 100 g tamaki. Holati: Cheklangan; ayrim hollarda taqiqlangan. Cheklov/ruxsat: Bir turidan biri: 200 dona sigaret yoki 5 dona sigara yoki 100 g tamaki. 21 yoshga toʻlmaganlar hamda pochta/kuryer orqali import taqiqlangan. Meʼyordan ortiq qismga ikki baravar yagona bojxona toʻlovi.. Vakolatli organ/oqibat: Bojxona organlari. 1.",
+    "huquqiy_manba": "VMQ 244-son, 1-ilova, 2-pozitsiya",
+    "url": "https://lex.uz/uz/docs/-7484114"
+  },
+  {
+    "id": "KB-021",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Atir va ifor tarqatuvchi suvlar — Cheklangan",
+    "matn": "Atir va ifor tarqatuvchi suvlar. Holati: Cheklangan. Cheklov/ruxsat: 3 dona, har biri 300 ml.dan oshmagan miqdorda. Meʼyordan ortiq qismga bir baravar yagona bojxona toʻlovi.. Vakolatli organ/oqibat: Bojxona organlari. 1.",
+    "huquqiy_manba": "VMQ 244-son, 1-ilova, 3-pozitsiya",
+    "url": "https://lex.uz/uz/docs/-7484114"
+  },
+  {
+    "id": "KB-022",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Biologik faol qoʻshimchalar — Cheklangan",
+    "matn": "Biologik faol qoʻshimchalar. Holati: Cheklangan. Cheklov/ruxsat: 10 ta turli nomdagi, birlamchi qadoqda, umumiy ogʻirligi 3 kg.gacha, har nomdan 1 ta qadoqdan oshmasligi kerak. Permit talab qilinmaydigan meʼyordan ko‘p olib kirishda SSV ruxsatnomasi talab etiladi. Meʼyordan ortiq qismga bir baravar yagona bojxona toʻlovi.. Vakolatli organ/oqibat: Sogʻliqni saqlash vazirligi, bojxona organlari. 1.",
+    "huquqiy_manba": "VMQ 244-son, 1-ilova, 4-pozitsiya; VMQ 191-son Nizom 6-band",
+    "url": "https://lex.uz/uz/docs/-7484114; https://lex.uz/uz/docs/-2978664"
+  },
+  {
+    "id": "KB-023",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Oddiy dori vositalari — Cheklangan",
+    "matn": "Oddiy dori vositalari. Holati: Cheklangan. Cheklov/ruxsat: Tibbiyot muassasasi hujjatisiz: 10 tagacha turli nomdagi dori, har biri 5 oʻramdan oshmasin. Bir oʻramdagi limitlar ham belgilangan: masalan, qattiq dori shakllarida 100 birlikgacha, eritma tayyorlash kukunida 500 g.gacha, oral/infuzion eritmalarda 500 ml.gacha, inyeksiyada 10 ampula/flakongacha, tashqi dorilarda 200 ml yoki 200 g.gacha.. Vakolatli organ/oqibat: Bojxona organlari; ishlab chiqaruvchining oʻramida bo‘lishi shart. 3.",
+    "huquqiy_manba": "VMQ 191-son Nizom 5-band",
+    "url": "https://lex.uz/uz/docs/-2978664"
+  },
+  {
+    "id": "KB-024",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Tibbiy buyumlar — Cheklangan",
+    "matn": "Tibbiy buyumlar. Holati: Cheklangan. Cheklov/ruxsat: 5 birlikdan ortiq bo‘lmagan miqdor.. Vakolatli organ/oqibat: Bojxona organlari; ishlab chiqaruvchining oʻrami talab qilinadi. 3.",
+    "huquqiy_manba": "VMQ 191-son Nizom 5-band",
+    "url": "https://lex.uz/uz/docs/-2978664"
+  },
+  {
+    "id": "KB-025",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Tarkibida giyohvandlik vositalari bo‘lgan dori vositalari — Cheklangan",
+    "matn": "Tarkibida giyohvandlik vositalari bo‘lgan dori vositalari. Holati: Cheklangan. Cheklov/ruxsat: 330-son qarordagi roʻyxatlarga muvofiq. 7 sutkalik ehtiyojdan ortiq bo‘lmagan miqdorda, yashash/bo‘lish mamlakatidagi tibbiyot muassasasi hujjati mavjud bo‘lsa olib kirishga ruxsat beriladi. Deklaratsiyada majburiy qayd etiladi. Hujjat va deklaratsiyadagi miqdordan ortiqcha qism olib qoʻyiladi va yoʻq qilinadi.. Vakolatli organ/oqibat: Bojxona organlari; narkotik moddalar bo‘yicha davlat nazorat tizimi. 3.",
+    "huquqiy_manba": "VMQ 191-son Nizom 8, 10, 12–14-bandlar; VMQ 330-son 1-band, 4–5-ilovalar",
+    "url": "https://lex.uz/uz/docs/-2978664; https://lex.uz/ru/docs/2815342"
+  },
+  {
+    "id": "KB-026",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Tarkibida psixotrop moddalar bo‘lgan dori vositalari — Cheklangan",
+    "matn": "Tarkibida psixotrop moddalar bo‘lgan dori vositalari. Holati: Cheklangan. Cheklov/ruxsat: Hujjatsiz: 5 tagacha turli nomdagi davolash preparati va har biridan 2 oʻramgacha, davolash kursi doirasida. Deklaratsiyada qayd etilishi shart. Ortigʻi olib qoʻyiladi va yoʻq qilinadi.. Vakolatli organ/oqibat: Bojxona organlari. 3.",
+    "huquqiy_manba": "VMQ 191-son Nizom 8, 11–14-bandlar; VMQ 330-son 1-band, 6-ilova",
+    "url": "https://lex.uz/uz/docs/-2978664; https://lex.uz/ru/docs/2815342"
+  },
+  {
+    "id": "KB-027",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "I roʻyxatdagi giyohvandlik vositalari — Taqiqlangan",
+    "matn": "I roʻyxatdagi giyohvandlik vositalari. Holati: Taqiqlangan. Cheklov/ruxsat: 4-ilovada “Oʻzbekistonda muomalada boʻlishi taqiqlangan giyohvandlik vositalari” roʻyxati tasdiqlangan. Jismoniy shaxslar uchun alohida miqdoriy istisno ushbu roʻyxat bandida nazarda tutilmagan; shaxsiy tibbiy qo‘llash istisnolari 191-son Nizom doirasida.. Vakolatli organ/oqibat: Tegishli davlat nazorat organlari; sertifikat rejimi asosan yuridik shaxslar uchun. 14.",
+    "huquqiy_manba": "VMQ 330-son, 1-band, 4-ilova",
+    "url": "https://lex.uz/ru/docs/2815342"
+  },
+  {
+    "id": "KB-028",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "II roʻyxatdagi giyohvandlik vositalari, III roʻyxatdagi psixotrop moddalar, IV roʻyxatdagi prekursorlar — Cheklangan",
+    "matn": "II roʻyxatdagi giyohvandlik vositalari, III roʻyxatdagi psixotrop moddalar, IV roʻyxatdagi prekursorlar. Holati: Cheklangan. Cheklov/ruxsat: Ushbu moddalarning muomalasi cheklangan. Toʻliq individial roʻyxatlar 5–7-ilovalarda keltirilgan. Jismoniy shaxslar uchun shaxsiy tibbiy foydalanish istisnolari 191-son Nizomga muvofiq qoʻllanadi.. Vakolatli organ/oqibat: Davlat nazorat organlari va bojxona. 14.",
+    "huquqiy_manba": "VMQ 330-son, 1-band, 5–7-ilovalar",
+    "url": "https://lex.uz/ru/docs/2815342; https://lex.uz/uz/docs/-2978664"
+  },
+  {
+    "id": "KB-029",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Fuqaroviy qurol va uning oʻq-dorilari — Cheklangan",
+    "matn": "Fuqaroviy qurol va uning oʻq-dorilari. Holati: Cheklangan. Cheklov/ruxsat: IIV ruxsatnomasi talab etiladi. Vaqtincha turgan chet el fuqarolari faqat ov va sport qurolini — tegishli taklifnoma/shartnoma va IIV ruxsatnomasi mavjud bo‘lsa — olib kirishi mumkin; olib kirilgan qurol va ishlatilmagan oʻq-dorilar belgilangan muddatda qayta olib chiqilishi kerak. Import ruxsatnomasi arizasi 10 ish kunida ko‘riladi.. Vakolatli organ/oqibat: Oʻzbekiston Respublikasi IIV Jamoat xavfsizligi departamenti; tartib buzilsa olib qoʻyish qoʻllanadi. 5.",
+    "huquqiy_manba": "OʻRQ-550, 31–32-moddalar; VMQ 366-son pasporti",
+    "url": "https://lex.uz/uz/docs/-4445288; https://lex.uz/uz/docs/-6990558"
+  },
+  {
+    "id": "KB-030",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Oʻzini oʻzi himoya qilish quroli chet el fuqarolari va fuqaroligi boʻlmagan shaxslar uchun — Taqiqlangan",
+    "matn": "Oʻzini oʻzi himoya qilish quroli chet el fuqarolari va fuqaroligi boʻlmagan shaxslar uchun. Holati: Taqiqlangan. Cheklov/ruxsat: Chet el fuqarolari va fuqaroligi boʻlmagan shaxslar tomonidan Oʻzbekiston hududiga oʻzini oʻzi himoya qilish qurolini olib kirish taqiqlanadi.. Vakolatli organ/oqibat: IIV / bojxona; buzilgan tartib natijasi sifatida olib qoʻyish ko‘rsatilgan. 5.",
+    "huquqiy_manba": "OʻRQ-550, 31-modda",
+    "url": "https://lex.uz/uz/docs/-4445288"
+  },
+  {
+    "id": "KB-031",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Radioelektron vositalar va yuqori chastotali qurilmalar roʻyxatidagi qurilmalar — Cheklangan",
+    "matn": "Radioelektron vositalar va yuqori chastotali qurilmalar roʻyxatidagi qurilmalar. Holati: Cheklangan. Cheklov/ruxsat: EMMM ruxsatnomasi bilan olib kiriladi. Roʻyxatda, jumladan, ayrim telefoniya apparatlari, sunʼiy yoʻldosh aloqa apparatlari, bazaviy stansiyalar, signal generatorlar, uchuvchisiz uchish apparatlari ham bor. Fuqarolik maqsadidagi REV import ruxsatnomasi 7 ish kunida, YuChQniki 5 ish kunida ko‘riladi; yigʻim undirilmaydi; foydalanish imkoniyati bo‘lmasa ruxsat rad etiladi.. Vakolatli organ/oqibat: “Elektromagnit moslashuv markazi” DUK. 15.",
+    "huquqiy_manba": "VMQ 801-son 4-ilova hamda VMQ 417-son bilan yangilangan roʻyxat; import ruxsatnomasi pasporti",
+    "url": "https://lex.uz/uz/docs/-5179158; https://lex.uz/uz/docs/-6581782"
+  },
+  {
+    "id": "KB-032",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Oddiy mobil telefonlar, ayrim past quvvatli radiostansiyalar va radiosignalizatsiya qurilmalari — Cheklovdan chiqarilgan istisno",
+    "matn": "Oddiy mobil telefonlar, ayrim past quvvatli radiostansiyalar va radiosignalizatsiya qurilmalari. Holati: Cheklovdan chiqarilgan istisno. Cheklov/ruxsat: Mobil uyali aloqa abonent qurilmalari (sunʼiy yoʻldosh tizimlari telefonlaridan tashqari), 5 Vt.dan yuqori bo‘lmagan ayrim portativ radiostansiyalar va 2 Vt.dan yuqori bo‘lmagan ayrim qoʻriqlash radiosignalizatsiyasi qurilmalari roʻyxatdan chiqarilgan.. Vakolatli organ/oqibat: Ruxsat talab qilinmaydi. Bu satr foydalanuvchini notoʻgʻri talqindan saqlash uchun kiritildi. 15.",
+    "huquqiy_manba": "VMQ 417-son, 4-ilova izoh",
+    "url": "https://lex.uz/uz/docs/-6581782"
+  },
+  {
+    "id": "KB-033",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Radiohavaskorlik uskunasi — Cheklangan",
+    "matn": "Radiohavaskorlik uskunasi. Holati: Cheklangan. Cheklov/ruxsat: Oʻzbekistonga radiohavaskorlik uskunasini olib kirish faqat EMMMning havaskorlik radiostansiyasidan foydalanish uchun ruxsatnomasi bo‘lganda mumkin; yangi turdagi va yangi raqamli modulatsiya uskunalari Kengashning alohida qarorlari asosida olib kiriladi.. Vakolatli organ/oqibat: EMMM va Radiochastotalar boʻyicha respublika kengashi. 15.",
+    "huquqiy_manba": "VMQ 801-son / 417-son",
+    "url": "https://lex.uz/uz/docs/-6581782"
+  },
+  {
+    "id": "KB-034",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Diniy mazmundagi materiallar — Cheklangan",
+    "matn": "Diniy mazmundagi materiallar. Holati: Cheklangan. Cheklov/ruxsat: Ijobiy dinshunoslik ekspertizasi xulosasidan keyin olib kiriladi. Jismoniy shaxslar oʻz ehtiyoji va ilmiy-tadqiqot uchun har bir nomlanishdan 3 nusxadan oshmagan miqdorda olib kirishi mumkin. Ekspertiza odatda 10 ish kunida, zaruratda 20 ish kunigacha oʻtkaziladi.. Vakolatli organ/oqibat: Din ishlari boʻyicha qoʻmita; bojxona, IIV va DXX Chegara qoʻshinlari materiallarni ekspertizaga yuboradi. 3 nusxadan ortiq rejim jismoniy shaxs uchun aniqlanmagan. 8.",
+    "huquqiy_manba": "VMQ 180-son Nizom 3, 9–12, 16–19, 27–30-bandlar",
+    "url": "https://lex.uz/uz/docs/-5957921"
+  },
+  {
+    "id": "KB-035",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Ijobiy xulosasi olinmagan va gologramma bilan tamgʻalanmagan diniy materiallar — Taqiqlangan",
+    "matn": "Ijobiy xulosasi olinmagan va gologramma bilan tamgʻalanmagan diniy materiallar. Holati: Taqiqlangan. Cheklov/ruxsat: Ijobiy xulosa olinmagan va gologramma bilan tamgʻalanmagan materiallar hududga olib kirilishi taqiqlanadi.. Vakolatli organ/oqibat: Olib kiruvchi shaxs javobgar; nazorat materiallari huquqni muhofaza qiluvchi organlarga taqdim etiladi. Javobgarlik turi/miqdori ushbu bandlarda aniqlanmagan. 8.",
+    "huquqiy_manba": "VMQ 180-son Nizom 11-band",
+    "url": "https://lex.uz/uz/docs/-5957921"
+  },
+  {
+    "id": "KB-036",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Jismoniy shaxslar tomonidan saqlanishi taqiqlangan yovvoyi hayvonlar roʻyxatidagi hayvonlar — Taqiqlangan",
+    "matn": "Jismoniy shaxslar tomonidan saqlanishi taqiqlangan yovvoyi hayvonlar roʻyxatidagi hayvonlar. Holati: Taqiqlangan. Cheklov/ruxsat: 736-sonning 1-ilovasida zaharli va yirtqich hayvonlarning keng roʻyxati berilgan. 821-son hujjatda mazkur roʻyxatga kiritilgan yovvoyi hayvonlarni jismoniy shaxslar tomonidan Oʻzbekiston hududiga olib kirish taqiqlanishi va ruxsatnoma berilishi rad etilishi bevosita belgilangan.. Vakolatli organ/oqibat: Ekologiya tizimi bilan bogʻliq vakolatli organlar; nazorat tadbirlarida Ekologiya, IIV va Milliy gvardiya ishtiroki koʻrsatilgan. Import ruxsatnomasini rad etuvchi organ olgan parchada aniq nomlanmagan. 9.",
+    "huquqiy_manba": "VMQ 736-son 1-ilova; VMQ 821-son tegishli band",
+    "url": "https://lex.uz/uz/docs/-7201110; https://lex.uz/uz/docs/-7942485"
+  },
+  {
+    "id": "KB-037",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Mineral oʻgʻitlar va oʻsimliklarni himoya qilish uchun kimyoviy vositalar — Cheklangan",
+    "matn": "Mineral oʻgʻitlar va oʻsimliklarni himoya qilish uchun kimyoviy vositalar. Holati: Cheklangan. Cheklov/ruxsat: Agentlik ruxsatnomasi talab etiladi. Ruxsatnoma talab etiladigan tovarlar roʻyxati nizom ilovasida belgilanadi. Oʻz ehtiyoji uchun import qilgan jismoniy shaxs undan faqat oʻz yer maydonida foydalanishi mumkin; ulgurji/chakana savdo taqiqlanadi. Ruxsatnoma amal qilish muddati 12 oy.. Vakolatli organ/oqibat: Oʻsimliklar karantini va himoyasi agentligi; chegara punktlarida dastlabki koʻrik oʻtkaziladi. 11.",
+    "huquqiy_manba": "VMQ 481-son, 1-ilova 3–6, 9-bandlari; 2-ilova 5–8-bandlari",
+    "url": "https://lex.uz/mact/-7048763"
+  },
+  {
+    "id": "KB-038",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Mineral oʻgʻitlar va kimyoviy vositalarni qoʻl yuki, bagaj, pochta orqali olib kirish — Taqiqlangan",
+    "matn": "Mineral oʻgʻitlar va kimyoviy vositalarni qoʻl yuki, bagaj, pochta orqali olib kirish. Holati: Taqiqlangan. Cheklov/ruxsat: Xorijiy mamlakatlardan qoʻl yuki yoki bagajda, pochta joʻnatmalarida yoki boshqa yuk bilan olib oʻtish taqiqlanadi. Faqat tajriba-sinov uchun ruxsatnoma asosida pochta joʻnatmasi mumkin.. Vakolatli organ/oqibat: Oʻsimliklar karantini va himoyasi agentligi; qoidabuzarlik oqibatining aniq turi ushbu bandda ko‘rsatilmagan. 16.",
+    "huquqiy_manba": "VMQ 481-son pasporti 9-band “o” kichik bandi",
+    "url": "https://lex.uz/mact/-7048763"
+  },
+  {
+    "id": "KB-039",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Madaniy boyliklar — Cheklangan",
+    "matn": "Madaniy boyliklar. Holati: Cheklangan. Cheklov/ruxsat: Import va eksport yagona davlat tartibiga, roʻyxatga olish va ekspertizaga bo‘ysunadi. Miqdoriy limit ushbu aktlarda aniqlanmagan.. Vakolatli organ/oqibat: Madaniyat vazirligi va bojxona organlari; hukmron nazorat va badiiy ekspertiza. 12.",
+    "huquqiy_manba": "“Madaniy boyliklarning olib chiqilishi va olib kirilishi toʻgʻrisida”gi Qonun 5-modda; VMQ 131-son Nizom",
+    "url": "https://lex.uz/acts/-24377; https://lex.uz/docs/-279299"
+  },
+  {
+    "id": "KB-040",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Hayvonotga mansub oziq-ovqat mahsulotlari — Cheklangan",
+    "matn": "Hayvonotga mansub oziq-ovqat mahsulotlari. Holati: Cheklangan. Cheklov/ruxsat: Jismoniy shaxslar tomonidan qoʻl yuki, kuzatib borilayotgan bagaj va pochta joʻnatmalari orqali olib kiriladigan hayvonotga mansub oziq-ovqat mahsulotlarida ishlab chiqarish oʻrovi majburiy.. Vakolatli organ/oqibat: Bojxona organlari; oʻrovsiz mahsulot bo‘yicha aniq protsessual oqibat ushbu bandda aniqlanmagan. 2.",
+    "huquqiy_manba": "PQ-4508, 1-band",
+    "url": "https://lex.uz/uz/docs/-4585742"
+  },
+  {
+    "id": "KB-041",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Nikotinni iste’mol qiluvchi va oshiruvchi qo‘shimchalarli suyuqliklar va moslamalar (jumladan elektron sigaretalar) — Taqiqlangan",
+    "matn": "Nikotinni iste’mol qiluvchi va oshiruvchi qo‘shimchalarli suyuqliklar va moslamalar (jumladan elektron sigaretalar). Holati: Taqiqlangan. Cheklov/ruxsat: Olib kirish va realizatsiya taqiqlanadi. Me’yor va ruxsatnoma aniqlanmagan.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "O‘RQ-844 (24.05.2023), 37-modda1",
+    "url": "https://lex.uz/docs/-64721001"
+  },
+  {
+    "id": "KB-042",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Portlovchi materiallar va masofadan portlatish qurilmalari — Taqiqlangan",
+    "matn": "Portlovchi materiallar va masofadan portlatish qurilmalari. Holati: Taqiqlangan. Cheklov/ruxsat: Jismoniy shaxslar olib kirishi, h.k. qat’iyan taqiqlangan (kuzatilmaydigan bagajda ham).. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 213 (06.05.2004), 2-band2",
+    "url": "https://lex.uz/docs/-2991852"
+  },
+  {
+    "id": "KB-043",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Pul yutug‘i bo‘lgan o‘yin avtomatlari — Taqiqlangan",
+    "matn": "Pul yutug‘i bo‘lgan o‘yin avtomatlari. Holati: Taqiqlangan. Cheklov/ruxsat: Umuman olib kirish taqiqlanadi; bojxona qo‘mitasi nazorat qiladi.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 176 (16.08.2007), 1-band3",
+    "url": "https://lex.uz/docs/-12383793"
+  },
+  {
+    "id": "KB-044",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Pirotexnika vositalari (II xavflilik sinfiga kiruvchi uy-ro‘zg‘or mahs.) — Taqiqlangan",
+    "matn": "Pirotexnika vositalari (II xavflilik sinfiga kiruvchi uy-ro‘zg‘or mahs.). Holati: Taqiqlangan. Cheklov/ruxsat: Olib kirish, ishlab chiqarish, saqlash, realizatsiya va foydalanish vaqtincha taqiqlangan.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 309 (10.12.2009), 1-band4",
+    "url": "https://lex.uz/docs/-15571944"
+  },
+  {
+    "id": "KB-045",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Portativ lazerli nur tarqatuvchilar (TN kod 9013 20 0000) — Taqiqlangan",
+    "matn": "Portativ lazerli nur tarqatuvchilar (TN kod 9013 20 0000). Holati: Taqiqlangan. Cheklov/ruxsat: 2013-yil 1-martdan chetdan kirishi va savdosi taqiqlangan.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 50 (20.02.2013), 1-band5",
+    "url": "https://lex.uz/docs/-21359695"
+  },
+  {
+    "id": "KB-046",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Uchuvchisiz uchish apparatlari (TN kodlari 8802200001, 8802200002, 8802200008, 8803100000, 8803200000) — Cheklangan",
+    "matn": "Uchuvchisiz uchish apparatlari (TN kodlari 8802200001, 8802200002, 8802200008, 8803100000, 8803200000). Holati: Cheklangan. Cheklov/ruxsat: Umumiy tartibda ruxsatnoma (Fuqarolik aviatsiya agentligi) talab qilinadi. Olib kirish bojxona nazorati ostida, noqonuniy olib kirish taqiqi.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 658 (15.11.2022), Nizom; pasport 3-ILOVA67",
+    "url": "https://lex.uz/uz/docs/628499067"
+  },
+  {
+    "id": "KB-047",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Ishlatilgan induktsion pechlar va kameralar (TN kod 8514 20 1000, ishlab chiqilganiga 3 yildan oshgan) — Taqiqlangan",
+    "matn": "Ishlatilgan induktsion pechlar va kameralar (TN kod 8514 20 1000, ishlab chiqilganiga 3 yildan oshgan). Holati: Taqiqlangan. Cheklov/ruxsat: 2020-yil 1-martdan boshlab shaxsiy import uchun 3 yildan ortiq ishlatilgani olib kirish taqiqlanadi.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 999 (14.12.2019), 1-band8",
+    "url": "https://lex.uz/uz/docs/46444108"
+  },
+  {
+    "id": "KB-048",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Nodavlat ekspertizasidan o‘tmagan diniy materiallar (gologrammasiz) — Taqiqlangan",
+    "matn": "Nodavlat ekspertizasidan o‘tmagan diniy materiallar (gologrammasiz). Holati: Taqiqlangan. Cheklov/ruxsat: Ijobiy dinshunoslik xulosasi yo‘q va gologrammasiz materiallar olib kirish taqiqlanadi. (Saqlanishi, realizatsiyasi ham taqiq ostida). Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "VMQ 180 (14.04.2022), Nizom 11-band9",
+    "url": "https://lex.uz/acts/-59579219"
+  },
+  {
+    "id": "KB-049",
+    "kategoriya": "Taqiqlangan / cheklangan tovarlar",
+    "sarlavha": "Ekstremistik, terrorchilik, zo‘ravonlik, irqchilik, diniy nafrat va pornografiya mazmundagi materiallar — Taqiqlangan",
+    "matn": "Ekstremistik, terrorchilik, zo‘ravonlik, irqchilik, diniy nafrat va pornografiya mazmundagi materiallar. Holati: Taqiqlangan. Cheklov/ruxsat: Bunday mazmundagi materiallar importi va tarqatilishi umuman taqiqlangan.. Vakolatli organ/oqibat:.",
+    "huquqiy_manba": "PF-5286 (15.12.2017), 2-ILOVA10",
+    "url": "https://lex.uz/docs/346065110"
+  }
+]

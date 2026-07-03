@@ -4,6 +4,20 @@
 
 Multilingual customs voice-assistant website (kiosk-style) for the TOSHKENT-AERO specialized customs complex, built with React + Vite from the Claude Design handoff (`Sora Veb-sayt.html`).
 
+## Mobil ilova (PWA)
+
+Sayt **PWA** sifatida ishlaydi — telefon brauzerida ochib, "Bosh ekranga qo'shish"
+(Add to Home Screen) orqali ilova kabi o'rnatish mumkin. O'rnatilgach to'liq ekranda,
+manzil satrisiz, mobil ilovadek ochiladi va **oflayn** ham ishlaydi.
+
+- `web/public/manifest.webmanifest` — ilova nomi, ikonkalar, `display: standalone`
+- `web/public/sw.js` — service worker (network-first: onlaynda doim yangi versiya,
+  oflaynda keshdan; "eski nusxa" muammosisiz)
+- `web/public/icon-*.png`, `apple-touch-icon.png` — ilova ikonkalari (logotipdan)
+
+Mobil uchun qo'shimcha: notch xavfsiz zonasi, sahifa cho'zilib yangilanmasligi,
+iOS'da fokusda zoom bo'lmasligi.
+
 ## Bilim bazasi va AI javoblar
 
 Sayt **Bojxona bilim bazasi** ustida ishlaydigan, brauzer ichidagi (serversiz)
@@ -16,8 +30,9 @@ huquqiy manba bilan qaytaradi — javoblar to'qib chiqarilmaydi.
 - `web/src/data/prohibited.json` — 31 ta taqiqlangan/cheklangan tovar (cheklov, manba, URL)
 - `web/src/lib/search.js` — normalizatsiya + skorlash dvigateli (`answerQuestion`)
 
-Savol berish: matn yozib **Enter** yoki mikrofon tugmasi (Chrome/Edge'da Web Speech
-API orqali ovozli savol). Javob topilmasa, ko'p so'raladigan savollar taklif etiladi.
+Savol berish: matn yozib **Enter/Javob olish** yoki **mikrofon** tugmasi (Chrome/Edge'da
+Web Speech API orqali ovozli savol). Javob ekranida javob **ovoz bilan o'qib beriladi**
+(text-to-speech) — dinamik tugma orqali qayta tinglash yoki to'xtatish mumkin.
 Barcha ma'lumot ilovaga jamlanadi — internet yoki API kalit talab qilinmaydi.
 
 > Kelajakdagi kengaytma: haqiqiy generativ LLM (masalan Claude API) ni qo'shish uchun

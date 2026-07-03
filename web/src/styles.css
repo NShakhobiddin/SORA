@@ -3,8 +3,17 @@
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: #E9F0FF; font-family: var(--font-display); -webkit-font-smoothing: antialiased; }
-button { font-family: var(--font-display); }
+html, body {
+  margin: 0; padding: 0; background: #E9F0FF;
+  font-family: var(--font-display); -webkit-font-smoothing: antialiased;
+  /* mobil ilova hissi: sahifa "cho'zilib"/pastga tortib yangilanmasin */
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
+  text-size-adjust: 100%; -webkit-text-size-adjust: 100%;
+}
+body { min-height: 100dvh; }
+button { font-family: var(--font-display); -webkit-tap-highlight-color: transparent; }
+input, textarea { font-size: 16px; } /* iOS'da fokusda zoom bo'lmasligi uchun */
 
 /* ── page scaffold ── */
 .wpage {
@@ -14,6 +23,9 @@ button { font-family: var(--font-display); }
   margin-inline: auto;
   display: flex; flex-direction: column; align-items: center;
   padding: clamp(20px, 4vw, 48px) clamp(16px, 4vw, 48px) clamp(28px, 5vh, 56px);
+  /* xavfsiz zona (notch) — tepa/pastki chekkalar */
+  padding-top: max(clamp(20px, 4vw, 48px), env(safe-area-inset-top));
+  padding-bottom: max(clamp(28px, 5vh, 56px), env(safe-area-inset-bottom));
   text-align: center;
 }
 .view-fade { animation: viewIn .45s cubic-bezier(.2,.7,.3,1); }

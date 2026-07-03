@@ -2,7 +2,6 @@ import React from 'react';
 import { Icon, Flag } from '../icons.jsx';
 import { Orb, Waveform } from '../components/Orb.jsx';
 import { useViewport, GradText, Card, LANGS } from '../components/shared.jsx';
-import { popularQuestions } from '../lib/search.js';
 
 // Web Speech API (Chrome/Edge) — mavjud bo'lsa ovozli savol
 const SR = typeof window !== 'undefined'
@@ -20,7 +19,6 @@ export function Ask({ T, lang, onHome, onAsk, onLang }) {
   const [text, setText] = React.useState('');
   const [listening, setListening] = React.useState(false);
   const recRef = React.useRef(null);
-  const suggestions = React.useMemo(() => popularQuestions(), []);
 
   const submit = (q) => {
     const val = (q ?? text).trim();
@@ -136,26 +134,6 @@ export function Ask({ T, lang, onHome, onAsk, onLang }) {
           <span>Tinglanmoqda…</span>
         </div>
       }
-
-      {/* Mashhur savollar */}
-      <div style={{ marginTop: 'auto', paddingTop: 'clamp(20px, 4vh, 36px)', width: '100%', maxWidth: 860 }}>
-        <div className="label" style={{ color: T.inkMute, textAlign: 'center', marginBottom: 12 }}>
-          Ko'p so'raladigan savollar
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
-          {suggestions.map((s) => (
-            <button key={s.id} onClick={() => onAsk(s.savol)} style={{
-              appearance: 'none', cursor: 'pointer',
-              background: T.card, border: `1px solid ${T.borderStrong}`, color: T.inkSoft,
-              borderRadius: 999, padding: 'clamp(9px, 1.4vh, 13px) clamp(14px, 2.2vw, 20px)',
-              fontSize: 'clamp(13px, 2vw, 17px)', fontWeight: 500, fontFamily: 'var(--font-display)',
-              textAlign: 'left', maxWidth: '100%',
-            }}>
-              {s.savol}
-            </button>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

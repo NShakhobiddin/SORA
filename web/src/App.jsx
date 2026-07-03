@@ -45,7 +45,7 @@ export default function App() {
         {view === 'home' && <Home T={T} onStart={() => go('lang')} />}
         {view === 'lang' && <Language T={T} selected={lang} onPick={pickLang} onHome={() => go('home')} />}
         {view === 'ask' && <Ask T={T} lang={lang} onHome={() => go('home')} onAsk={ask} onLang={() => go('lang')} />}
-        {view === 'answer' && <Answer T={T} result={result} onBack={() => go('ask')} onHome={() => go('home')} onAsk={ask} />}
+        {view === 'answer' && <Answer T={T} lang={lang} result={result} onBack={() => go('ask')} onHome={() => go('home')} onAsk={ask} />}
       </div>
     </React.Fragment>
   );

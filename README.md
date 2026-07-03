@@ -13,14 +13,25 @@ Multilingual customs voice-assistant website (kiosk-style) for the TOSHKENT-AERO
 
 The animated airport background (drifting photo, glow fields, light sweep, floating particles, flying plane) is shared across all screens. View and language selection persist in `localStorage`.
 
-## Development
+## Saytni ochish · How to run
+
+**1. Eng oson yo‘l (o‘rnatishsiz):** [`sora-standalone.html`](./sora-standalone.html) faylini yuklab oling va ikki marta bosib oching — barcha rasm va kodlar bitta faylning ichida, server kerak emas.
+
+*Easiest way: download `sora-standalone.html` and double-click it — everything is embedded in one file, no server needed.*
+
+**2. GitHub Pages:** repo **Settings → Pages → Source: GitHub Actions** ni yoqing — har push'da sayt avtomatik chiqadi (`.github/workflows/deploy.yml`).
+
+**3. Dasturchi rejimi · Development:**
 
 ```bash
 npm install
-npm run dev       # start dev server
-npm run build     # production build → dist/
-npm run preview   # serve the production build locally
+npm run dev            # start dev server (http://localhost:5173)
+npm run build          # production build → dist/ (works from any URL path)
+npm run build:single   # self-contained single file → sora-standalone.html
+npm run preview        # serve the production build locally
 ```
+
+> Eslatma: `index.html` ni to‘g‘ridan-to‘g‘ri ochib bo‘lmaydi (ES-modul cheklovi). Serversiz ochish uchun `sora-standalone.html` dan foydalaning.
 
 ## Structure
 

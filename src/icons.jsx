@@ -1,5 +1,20 @@
 // Inline SVG icons + premium flag badges (refined fidelity)
 
+import touchIconUrl from './assets/touch-icon.png';
+import flagUz from './assets/flags/uz.svg';
+import flagRu from './assets/flags/ru.svg';
+import flagEn from './assets/flags/en.svg';
+import flagCn from './assets/flags/cn.svg';
+import flagTr from './assets/flags/tr.svg';
+import flagAr from './assets/flags/ar.svg';
+import flagFr from './assets/flags/fr.svg';
+import flagKz from './assets/flags/kz.svg';
+
+const FLAG_SRC = {
+  uz: flagUz, ru: flagRu, en: flagEn, cn: flagCn,
+  tr: flagTr, ar: flagAr, fr: flagFr, kz: flagKz,
+};
+
 export const Icon = {
   chat: (p) => (
     <svg viewBox="0 0 24 24" fill="none" {...p}>
@@ -76,8 +91,8 @@ export const Icon = {
         width, height,
         color: style.color || 'currentColor',
         backgroundColor: 'currentColor',
-        WebkitMaskImage: 'url("/assets/touch-icon.png")',
-        maskImage: 'url("/assets/touch-icon.png")',
+        WebkitMaskImage: `url("${touchIconUrl}")`,
+        maskImage: `url("${touchIconUrl}")`,
         WebkitMaskSize: 'contain', maskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center', maskPosition: 'center',
@@ -105,7 +120,7 @@ export function Flag({ code, size = 120 }) {
       background: '#fff',
       boxShadow: '0 8px 24px rgba(15,30,60,.18), 0 2px 6px rgba(15,30,60,.10), inset 0 0 0 1px rgba(255,255,255,.55), inset 0 -1px 0 rgba(0,0,0,.08)',
     }}>
-      <img src={`/assets/flags/${code}.svg`} alt=""
+      <img src={FLAG_SRC[code]} alt=""
            style={{ width: '100%', height: '100%', display: 'block', objectFit: 'cover' }}/>
       {/* glass highlight */}
       <div style={{

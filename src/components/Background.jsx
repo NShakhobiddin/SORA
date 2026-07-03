@@ -1,4 +1,5 @@
 import React from 'react';
+import bgAirportUrl from '../assets/bg-airport.png';
 
 // ── Fixed animated background (airport photo + fx) ──
 const PARTICLES = (() => {
@@ -23,7 +24,7 @@ export function Background({ T }) {
   return (
     <div style={{ position: 'fixed', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 0, background: T.bg }}>
       <img
-        src="/assets/bg-airport.png" alt=""
+        src={bgAirportUrl} alt=""
         style={{
           position: 'absolute', left: 0, top: 0, width: '100%', height: '100%',
           objectFit: 'cover', transformOrigin: '50% 45%',

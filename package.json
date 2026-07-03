@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:single": "vite build -c vite.single.config.js && cp dist-single/index.html sora-standalone.html",
+    "build:pages": "npm run build:single && cp dist-single/index.html index.html",
     "preview": "vite preview"
   },
   "dependencies": {

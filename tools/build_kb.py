@@ -210,6 +210,53 @@ def build_kb():
     return kb
 
 
+QA_XLSX = 'passenger_questions_answers_vector.xlsx'
+
+
+def build_qa():
+    """1000 ta yo'lovchi savol-javobi (All_QA_Vector varag'i) → qa.json.
+    Ixchamlik uchun: javobdagi "Amaliy javob:" prefiksi olib tashlanadi,
+    kalit so'zlardan dastlabki 5 tasi (mavzuga xoslari) qoldiriladi,
+    embedding/audit maydonlari kiritilmaydi."""
+    path = SRC / QA_XLSX
+    if not path.exists():
+        print(f"OGOHLANTIRISH: {QA_XLSX} topilmadi — qa.json yaratilmaydi")
+        return []
+    wb = openpyxl.load_workbook(path, read_only=True)
+    ws = wb['All_QA_Vector']
+    rows = ws.iter_rows(values_only=True)
+    hdr = next(rows)
+    ix = {n: hdr.index(n) for n in hdr}
+
+    def cell(row, name):
+        v = row[ix[name]]
+        return str(v).strip() if v is not None else ''
+
+    out = []
+    for row in rows:
+        q = cell(row, 'question')
+        a = cell(row, 'answer')
+        if not q or not a:
+            continue
+        if a.startswith('Amaliy javob: '):
+            a = a[len('Amaliy javob: '):]
+        kw = [k.strip() for k in cell(row, 'keywords').split(',') if k.strip()][:5]
+        muhim = cell(row, 'important_part')
+        if len(muhim) > 320:
+            muhim = muhim[:320].rsplit(' ', 1)[0] + '…'
+        out.append({
+            'id': cell(row, 'qa_id'),
+            'manba': cell(row, 'source_document_label'),
+            'mavzu': cell(row, 'topic'),
+            'savol': q,
+            'javob': a,
+            'muhim': muhim,
+            'asos': cell(row, 'basis_for_answer'),
+            'kalit': kw,
+        })
+    return out
+
+
 def build_prohibited():
     wb = openpyxl.load_workbook(SRC / XLSX)
     ws = wb.worksheets[0]
@@ -233,13 +280,17 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     kb = build_kb()
     prohibited = build_prohibited()
+    qa = build_qa()
     (OUT / 'kb.json').write_text(
         json.dumps(kb, ensure_ascii=False, indent=1), encoding='utf-8')
     (OUT / 'prohibited.json').write_text(
         json.dumps(prohibited, ensure_ascii=False, indent=1), encoding='utf-8')
+    (OUT / 'qa.json').write_text(  # katta fayl — ixcham yoziladi
+        json.dumps(qa, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     total = sum(len(c['matn']) for c in kb)
     print(f"kb.json: {len(kb)} bo'lak, {total} belgi")
     print(f"prohibited.json: {len(prohibited)} yozuv")
+    print(f"qa.json: {len(qa)} savol-javob")
     for code in {c['manba'].split(',')[0] for c in kb}:
         cnt = sum(1 for c in kb if c['manba'].startswith(code))
         print(f'  {code}: {cnt}')

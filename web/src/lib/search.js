@@ -7,6 +7,7 @@
 // hech narsa to'qib chiqarilmaydi.
 
 import KB from '../data/kb.json';
+import QA from '../data/qa.json';
 import PROHIBITED from '../data/prohibited.json';
 
 // ── Matnni normallashtirish ─────────────────────────────────────
@@ -34,12 +35,18 @@ const STOP = new Set([
 ]);
 
 // Konservativ o'zbekcha suffiks qisqartirish — "telefonni/telefonda/telefonlar"
-// bir xil o'zakka kelishi uchun. O'zak kamida 4 belgi qoladi.
-const SUFFIXES = [
+// bir xil o'zakka kelishi uchun. Ot qo'shimchalarida o'zak kamida 4 belgi,
+// fe'l qo'shimchalarida (kirsam/kirish/kiraman → kir) kamida 3 belgi qoladi.
+const NOUN_SUFFIXES = [
   'larimizni', 'laringiz', 'larining', 'lariga', 'larida', 'laridan',
   'larini', 'larning', 'larni', 'larga', 'larda', 'lardan', 'lari', 'lar',
-  'ning', 'imizni', 'ingiz', 'lariga', 'sining', 'sini', 'siga', 'sida',
+  'ning', 'imizni', 'ingiz', 'sining', 'sini', 'siga', 'sida',
   'sidan', 'si', 'ni', 'ga', 'da', 'dan', 'ini', 'iga', 'ida', 'idan', 'i',
+];
+const VERB_SUFFIXES = [
+  'moqchiman', 'moqchimiz', 'moqchi', 'ayotgan', 'adigan', 'aman', 'yman',
+  'asiz', 'amiz', 'ishim', 'ishni', 'ishga', 'ishda', 'ish', 'sam', 'sang',
+  'sak', 'sangiz', 'gan', 'kan', 'qan',
 ];
 
 function stem(t) {
@@ -49,11 +56,20 @@ function stem(t) {
   while (changed && guard < 3) {
     changed = false;
     guard += 1;
-    for (const suf of SUFFIXES) {
+    for (const suf of NOUN_SUFFIXES) {
       if (s.length - suf.length >= 4 && s.endsWith(suf)) {
         s = s.slice(0, -suf.length);
         changed = true;
         break;
+      }
+    }
+    if (!changed) {
+      for (const suf of VERB_SUFFIXES) {
+        if (s.length - suf.length >= 3 && s.endsWith(suf)) {
+          s = s.slice(0, -suf.length);
+          changed = true;
+          break;
+        }
       }
     }
   }
@@ -142,6 +158,42 @@ const PROHIBITED_INDEX = PROHIBITED.map((item) => ({
   bodyBag: new Set(tokens(item.cheklov_ruxsat_istisno)),
 }));
 
+// ── QA indeksi: 1000 ta tayyor yo'lovchi savol-javobi ───────────
+const QA_INDEX = QA.map((item) => {
+  const qTf = new Map();
+  for (const t of tokens(`${item.savol} ${item.mavzu}`)) qTf.set(t, (qTf.get(t) || 0) + 1);
+  const kwPhrases = (item.kalit || []).map(normalize).filter(Boolean);
+  const kwTokens = new Set(kwPhrases.flatMap((p) => p.split(' ').map(stem)));
+  const aTokens = new Set(tokens(item.javob));
+  return { item, qTf, kwPhrases, kwTokens, aTokens };
+});
+
+const QA_DF = new Map();
+for (const e of QA_INDEX) {
+  const seen = new Set([...e.qTf.keys(), ...e.kwTokens]);
+  for (const t of seen) QA_DF.set(t, (QA_DF.get(t) || 0) + 1);
+}
+const QA_N = QA_INDEX.length;
+const qaIdf = (t) => Math.pow(Math.log(1 + QA_N / (1 + (QA_DF.get(t) || 0))), 1.5);
+
+function scoreQA(entry, qNorm, qTokens) {
+  let score = 0;
+  let hits = 0;
+  for (const t of qTokens) {
+    const w = qaIdf(t);
+    if (entry.qTf.has(t)) { score += w * 2; hits += 1; }
+    else if (entry.kwTokens.has(t)) { score += w * 1.2; hits += 1; }
+    else if (entry.aTokens.has(t)) { score += w * 0.5; }
+  }
+  // kalit ibora savol ichida to'liq uchrasa — kuchli signal
+  for (const p of entry.kwPhrases) {
+    if (p.length >= 5 && qNorm.includes(p)) score += 4 + p.split(' ').length;
+  }
+  if (hits === 0) return { s: 0, hits: 0 };
+  const cover = hits / Math.max(2, qTokens.length);
+  return { s: score * (0.5 + 0.7 * cover), hits };
+}
+
 // Umumiy bojxona so'zlari — yolg'iz o'zi tovar jadvalini "ochmasin"
 const DOMAIN_STOP = new Set(
   ['olib', 'kirish', 'chiqish', 'kir', 'chiq', 'deklaratsiya', 'boj',
@@ -186,14 +238,26 @@ function scoreProhibited(entry, qTokens) {
 }
 
 // ── Asosiy funksiya ─────────────────────────────────────────────
-// Qaytadi: { found, query, category, title, answer, legal, url,
-//            related[], kb[], prohibited[] }
+// Avval 1000 ta tayyor savol-javob orasidan qidiriladi (aniq, qisqa javob);
+// kuchli moslik topilmasa hujjat bo'laklaridan (to'liq matn) qidiriladi.
+// Qaytadi: { found, source, query, category, title, answer, important,
+//            legal, url, related[], kb[], prohibited[] }
 export function answerQuestion(query) {
   const raw = [...new Set(tokens(query))];
   if (raw.length === 0) return { found: false, query, reason: 'empty' };
   const qTokens = expand(raw);
+  const qNorm = normalize(query);
 
-  const ranked = INDEX
+  // Taqiqlangan/cheklangan tovarlar jadvalidan mos yozuvlar (har ikki yo'lda)
+  const prohibited = PROHIBITED_INDEX
+    .map((e) => ({ e, s: scoreProhibited(e, qTokens) }))
+    .filter((r) => r.s >= 3)
+    .sort((a, b) => b.s - a.s)
+    .slice(0, 2)
+    .map((r) => r.e.item);
+
+  // Hujjat bo'laklari reytingi (QA javobiga kontekst sifatida ham kerak)
+  const rankedKb = INDEX
     .map((e) => {
       const r = scoreChunk(e, qTokens);
       return { e, s: r.s, hits: r.hits, titleHits: r.titleHits };
@@ -201,7 +265,48 @@ export function answerQuestion(query) {
     .filter((r) => r.s > 0)
     .sort((a, b) => b.s - a.s);
 
-  const best = ranked[0];
+  // 1) Tayyor savol-javoblar
+  const rankedQA = QA_INDEX
+    .map((e) => {
+      const r = scoreQA(e, qNorm, qTokens);
+      return { e, s: r.s, hits: r.hits };
+    })
+    .filter((r) => r.s > 0)
+    .sort((a, b) => b.s - a.s);
+
+  const bestQA = rankedQA[0];
+  const QA_MIN = 3.2;
+  if (bestQA && bestQA.s >= QA_MIN && bestQA.hits >= 2) {
+    const item = bestQA.e.item;
+    const related = [];
+    for (const r of rankedQA.slice(1)) {
+      if (related.length >= 3) break;
+      if (r.s < bestQA.s * 0.45) break;
+      if (r.e.item.javob === item.javob) continue;
+      related.push({ id: r.e.item.id, savol: r.e.item.savol });
+    }
+    const extras = rankedKb
+      .filter((r) => r.s >= 1.15)
+      .slice(0, 1)
+      .map((r) => r.e.item);
+    return {
+      found: true,
+      source: 'qa',
+      query,
+      category: item.manba,
+      title: item.mavzu,
+      answer: item.javob,
+      important: item.muhim,
+      legal: item.asos,
+      url: '',
+      related,
+      kb: extras,
+      prohibited,
+    };
+  }
+
+  // 2) Hujjat bo'laklari (to'liq matn)
+  const best = rankedKb[0];
   const MIN = 1.15;
   // Ishonch sharti: yetarli ball VA (kamida 2 xil so'z mosligi YOKI
   // sarlavhada kuchli moslik). Bitta tasodifiy so'z mosligi javob emas.
@@ -213,7 +318,7 @@ export function answerQuestion(query) {
 
   // Qo'shimcha: keyingi eng mos bo'laklar (boshqa sarlavhalardan)
   const extras = [];
-  for (const r of ranked.slice(1)) {
+  for (const r of rankedKb.slice(1)) {
     if (extras.length >= 2) break;
     if (r.s < Math.max(MIN, best.s * 0.45)) break;
     if (r.e.item.sarlavha.split(' (davomi')[0] === item.sarlavha.split(' (davomi')[0]) continue;
@@ -223,20 +328,14 @@ export function answerQuestion(query) {
   // Tegishli bo'lak sarlavhalari — chip sifatida qayta so'rash uchun
   const related = extras.slice(0, 3).map((x) => ({ id: x.id, savol: x.sarlavha }));
 
-  // Taqiqlangan/cheklangan tovarlar jadvalidan mos yozuvlar
-  const prohibited = PROHIBITED_INDEX
-    .map((e) => ({ e, s: scoreProhibited(e, qTokens) }))
-    .filter((r) => r.s >= 3)
-    .sort((a, b) => b.s - a.s)
-    .slice(0, 2)
-    .map((r) => r.e.item);
-
   return {
     found: true,
+    source: 'kb',
     query,
     category: item.manba.split(',')[0],
     title: item.sarlavha,
     answer: item.matn,
+    important: '',
     legal: `${item.sarlavha} · ${item.hujjat}`,
     url: item.url || '',
     related,
@@ -251,6 +350,7 @@ export const STATS = { kb: KB.length, prohibited: PROHIBITED.length };
 export function debugScores(query, topN = 5) {
   const raw = [...new Set(tokens(query))];
   const qTokens = expand(raw);
+  const qNorm = normalize(query);
   return {
     qTokens,
     top: INDEX
@@ -261,6 +361,16 @@ export function debugScores(query, topN = 5) {
       .map((r) => ({
         id: r.e.item.id, sarlavha: r.e.item.sarlavha,
         s: +r.s.toFixed(2), hits: r.hits, titleHits: r.titleHits,
+      })),
+    topQA: QA_INDEX
+      .map((e) => ({ e, ...scoreQA(e, qNorm, qTokens) }))
+      .filter((r) => r.s > 0)
+      .sort((a, b) => b.s - a.s)
+      .slice(0, topN)
+      .map((r) => ({
+        id: r.e.item.id, savol: r.e.item.savol,
+        s: +r.s.toFixed(2), hits: r.hits,
+        matched: qTokens.filter((t) => r.e.qTf.has(t) || r.e.kwTokens.has(t)),
       })),
   };
 }

@@ -11,9 +11,10 @@ function speechText(result) {
   if (!result || !result.found) {
     return "Kechirasiz, bu savolga bazadan aniq javob topilmadi. Savolni boshqacharoq ifodalab ko'ring.";
   }
-  const body = (result.title ? result.title + '. ' : '') + result.answer;
-  const clean = body.replace(/\s+—\s+/g, ' — ').replace(/\n+/g, '. ');
-  return `${clean} Huquqiy asos: ${result.category}.`;
+  const parts = [result.answer];
+  if (result.important) parts.push(`Muhim: ${result.important}`);
+  parts.push(`Huquqiy asos: ${result.legal || result.category}.`);
+  return parts.join(' ').replace(/\s+—\s+/g, ' — ').replace(/\n+/g, '. ');
 }
 
 export function Answer({ T, lang, result, onBack, onHome, onAsk }) {
@@ -104,7 +105,9 @@ export function Answer({ T, lang, result, onBack, onHome, onAsk }) {
       {/* Bog'liq savollar */}
       {found && result.related && result.related.length > 0 &&
         <div style={{ maxWidth: 860, width: '100%', marginInline: 'auto', marginTop: 'clamp(16px, 3vh, 24px)', textAlign: 'left' }}>
-          <div className="label" style={{ color: T.inkMute, marginBottom: 10 }}>Tegishli bo'limlar</div>
+          <div className="label" style={{ color: T.inkMute, marginBottom: 10 }}>
+            {result.source === 'qa' ? "O'xshash savollar" : "Tegishli bo'limlar"}
+          </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             {result.related.map((r) => (
               <button key={r.id} onClick={() => onAsk(r.savol)} style={{
@@ -163,6 +166,17 @@ function FoundCard({ T, result }) {
             {result.answer}
           </div>
         } />
+
+      {result.important &&
+        <>
+          <div style={{ height: 1, background: T.border }} />
+          <Section T={T}
+            icon={<Icon.info width={26} height={26} style={{ color: T.primary }} />}
+            iconBg={`${T.primary}22`} iconColor={T.primary}
+            title="Muhim qism (hujjatdan)"
+            body={<div style={{ whiteSpace: 'pre-line' }}>{result.important}</div>} />
+        </>
+      }
 
       {/* Taqiqlangan/cheklangan tovarlar jadvalidan qo'shimcha */}
       {result.prohibited && result.prohibited.length > 0 &&

@@ -31,15 +31,23 @@ DBQ-2606 (yo'lovchi deklaratsiyasi), PF-104 (zargarlik), PQ-4508 (shaxsiy
 ehtiyoj tovarlari), VMQ-700 (bojxona tartib-taomillari) + taqiqlangan/cheklangan
 tovarlar jadvali (Excel).
 
+Qo'shimcha: `passenger_questions_answers_vector.xlsx` — hujjatlar asosida
+tayyorlangan **1000 ta yo'lovchi savol-javobi** (savol, javob, muhim iqtibos,
+huquqiy asos, kalit so'zlar).
+
 - `tools/build_kb.py` — hujjatlarni o'qib bazani yaratadi: kodeks *moddalar*
   bo'yicha, qarorlar *bandlar/ilovalar* bo'yicha bo'linadi, jadvallar matnga
-  aylantiriladi. Ishga tushirish: `python3 tools/build_kb.py`
+  aylantiriladi; savol-javob Excel'i qa.json ga aylantiriladi.
+  Ishga tushirish: `python3 tools/build_kb.py`
   (talab: `pip install python-docx openpyxl`)
-- `web/src/data/kb.json` — 372 ta hujjat bo'lagi (sarlavha, matn, manba, lex.uz URL)
+- `web/src/data/qa.json` — 1000 ta tayyor savol-javob (asosiy javob qatlami)
+- `web/src/data/kb.json` — 372 ta hujjat bo'lagi (zaxira qatlam + kontekst)
 - `web/src/data/prohibited.json` — 32 ta taqiqlangan/cheklangan tovar (Excel'dan)
-- `web/src/lib/search.js` — qidiruv dvigateli: o'zbekcha normalizatsiya
-  (apostrof variantlari, suffiks qisqartirish), sinonimlar (telefon→mobil,
-  dollar→valyuta, aroq→alkogol...), IDF-vaznli skorlash, ishonch chegarasi
+- `web/src/lib/search.js` — qidiruv dvigateli: avval 1000 savol-javobdan
+  qidiradi, kuchli moslik bo'lmasa hujjat bo'laklaridan; o'zbekcha
+  normalizatsiya (apostrof variantlari, ot/fe'l suffiks qisqartirish),
+  sinonimlar (telefon→mobil, dollar→valyuta, aroq→alkogol...),
+  IDF-vaznli skorlash, ishonch chegarasi
 
 Savol berish: matn yozib **Enter/Javob olish** yoki **mikrofon** tugmasi (Chrome/Edge'da
 Web Speech API orqali ovozli savol). Javob ekranida javob **ovoz bilan o'qib beriladi**

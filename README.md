@@ -20,20 +20,35 @@ iOS'da fokusda zoom bo'lmasligi.
 
 ## Bilim bazasi va AI javoblar
 
-Sayt **Bojxona bilim bazasi** ustida ishlaydigan, brauzer ichidagi (serversiz)
-qidiruv/AI dvigateliga ega. Foydalanuvchi savolini bazadagi savollar, savol
-variantlari va kalit so'zlarga solishtirib, aynan tekshirilgan huquqiy javobni
-huquqiy manba bilan qaytaradi — javoblar to'qib chiqarilmaydi.
+Sayt **rasmiy huquqiy hujjatlar bazasi** ustida ishlaydigan, brauzer ichidagi
+(serversiz) qidiruv/AI dvigateliga ega. Baza `data-src/` dagi hujjatlardan
+avtomatik shakllantiriladi va javob AYNAN hujjat matnidan beriladi —
+hech narsa to'qib chiqarilmaydi.
 
-- `web/src/data/qa.json` — 31 ta savol-javob juftligi (huquqiy manba bilan)
-- `web/src/data/kb.json` — 49 ta bilim bo'lagi (qo'shimcha izoh uchun)
-- `web/src/data/prohibited.json` — 31 ta taqiqlangan/cheklangan tovar (cheklov, manba, URL)
-- `web/src/lib/search.js` — normalizatsiya + skorlash dvigateli (`answerQuestion`)
+**Manba hujjatlar** (`data-src/`): Bojxona kodeksi, VMQ-244 (tovar normalari),
+VMQ-191 (dori vositalari), VMQ-66 (valyuta), VMQ-814 (yashil-qizil yo'laklar),
+DBQ-2606 (yo'lovchi deklaratsiyasi), PF-104 (zargarlik), PQ-4508 (shaxsiy
+ehtiyoj tovarlari), VMQ-700 (bojxona tartib-taomillari) + taqiqlangan/cheklangan
+tovarlar jadvali (Excel).
+
+- `tools/build_kb.py` — hujjatlarni o'qib bazani yaratadi: kodeks *moddalar*
+  bo'yicha, qarorlar *bandlar/ilovalar* bo'yicha bo'linadi, jadvallar matnga
+  aylantiriladi. Ishga tushirish: `python3 tools/build_kb.py`
+  (talab: `pip install python-docx openpyxl`)
+- `web/src/data/kb.json` — 372 ta hujjat bo'lagi (sarlavha, matn, manba, lex.uz URL)
+- `web/src/data/prohibited.json` — 32 ta taqiqlangan/cheklangan tovar (Excel'dan)
+- `web/src/lib/search.js` — qidiruv dvigateli: o'zbekcha normalizatsiya
+  (apostrof variantlari, suffiks qisqartirish), sinonimlar (telefon→mobil,
+  dollar→valyuta, aroq→alkogol...), IDF-vaznli skorlash, ishonch chegarasi
 
 Savol berish: matn yozib **Enter/Javob olish** yoki **mikrofon** tugmasi (Chrome/Edge'da
 Web Speech API orqali ovozli savol). Javob ekranida javob **ovoz bilan o'qib beriladi**
 (text-to-speech) — dinamik tugma orqali qayta tinglash yoki to'xtatish mumkin.
 Barcha ma'lumot ilovaga jamlanadi — internet yoki API kalit talab qilinmaydi.
+
+**Bazani yangilash:** `data-src/` ga yangi/yangilangan hujjatni qo'ying,
+`python3 tools/build_kb.py` ni ishga tushiring, so'ng `npm run build:pages`
+qilib commit-push qiling.
 
 > Kelajakdagi kengaytma: haqiqiy generativ LLM (masalan Claude API) ni qo'shish uchun
 > maxfiy API kalitni saqlaydigan kichik backend (serverless funksiya) kerak bo'ladi;

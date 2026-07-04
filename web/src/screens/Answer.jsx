@@ -11,9 +11,9 @@ function speechText(result) {
   if (!result || !result.found) {
     return "Kechirasiz, bu savolga bazadan aniq javob topilmadi. Savolni boshqacharoq ifodalab ko'ring.";
   }
-  const parts = [result.answer];
-  if (result.legal) parts.push(`Huquqiy asos: ${result.legal}.`);
-  return parts.join(' ');
+  const body = (result.title ? result.title + '. ' : '') + result.answer;
+  const clean = body.replace(/\s+—\s+/g, ' — ').replace(/\n+/g, '. ');
+  return `${clean} Huquqiy asos: ${result.category}.`;
 }
 
 export function Answer({ T, lang, result, onBack, onHome, onAsk }) {
@@ -104,7 +104,7 @@ export function Answer({ T, lang, result, onBack, onHome, onAsk }) {
       {/* Bog'liq savollar */}
       {found && result.related && result.related.length > 0 &&
         <div style={{ maxWidth: 860, width: '100%', marginInline: 'auto', marginTop: 'clamp(16px, 3vh, 24px)', textAlign: 'left' }}>
-          <div className="label" style={{ color: T.inkMute, marginBottom: 10 }}>Tegishli savollar</div>
+          <div className="label" style={{ color: T.inkMute, marginBottom: 10 }}>Tegishli bo'limlar</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             {result.related.map((r) => (
               <button key={r.id} onClick={() => onAsk(r.savol)} style={{
@@ -157,7 +157,12 @@ function FoundCard({ T, result }) {
         icon={<Icon.check width={26} height={26} style={{ color: T.success }} />}
         iconBg={`${T.success}22`} iconColor={T.success}
         title="Javob"
-        body={result.answer} />
+        body={
+          <div style={{ whiteSpace: 'pre-line' }}>
+            {result.title && <b style={{ display: 'block', marginBottom: 6, color: T.ink }}>{result.title}</b>}
+            {result.answer}
+          </div>
+        } />
 
       {/* Taqiqlangan/cheklangan tovarlar jadvalidan qo'shimcha */}
       {result.prohibited && result.prohibited.length > 0 &&
@@ -190,8 +195,8 @@ function FoundCard({ T, result }) {
             body={
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {result.kb.map((k) => (
-                  <div key={k.id}>
-                    <b>{k.sarlavha}.</b> {k.matn}
+                  <div key={k.id} style={{ whiteSpace: 'pre-line' }}>
+                    <b>{k.sarlavha}.</b> {k.matn.length > 500 ? k.matn.slice(0, 500) + '…' : k.matn}
                   </div>
                 ))}
               </div>

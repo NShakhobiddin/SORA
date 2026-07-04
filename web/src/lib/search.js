@@ -1,68 +1,140 @@
-// Bojxonachi Sora — bilim bazasidan javob qidirish dvigateli (client-side)
+// Bojxonachi Sora — huquqiy hujjatlar bazasidan javob qidirish (client-side)
 //
-// Foydalanuvchi savolini bazadagi savollar, savol variantlari, kalit
-// so'zlar va bilim bo'laklariga solishtirib, eng mos huquqiy javobni
-// qaytaradi. Serversiz, kalitsiz ishlaydi — barcha ma'lumot bazadan olinadi.
+// Baza tools/build_kb.py tomonidan data-src/ dagi rasmiy hujjatlardan
+// (Bojxona kodeksi, VMQ-244/191/66/814/700, DBQ-2606, PF-104, PQ-4508 va
+// taqiqlangan tovarlar jadvali) shakllantiriladi. Foydalanuvchi savoliga
+// eng mos hujjat bo'lagi topilib, javob AYNAN o'sha matndan beriladi —
+// hech narsa to'qib chiqarilmaydi.
 
-import QA from '../data/qa.json';
 import KB from '../data/kb.json';
 import PROHIBITED from '../data/prohibited.json';
 
 // ── Matnni normallashtirish ─────────────────────────────────────
-// O'zbek apostrof variantlarini (ʻ ' ' ` ‘ ’) bittaga keltiramiz,
-// kichik harfga o'tkazamiz va faqat harf/raqamlarni qoldiramiz.
+// O'zbek apostrof variantlari (ʻ ʼ ' ' `) bittaga keltiriladi.
 const APOS = /[ʻʼ‘’`´']/g;
 
 export function normalize(s) {
   return (s || '')
     .toLowerCase()
     .replace(APOS, "'")
-    .replace(/[^0-9a-zЀ-ӿ'\s]/g, ' ')
+    .replace(/[^0-9a-zа-яё'\s-]/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-// "to'xtash so'zlari" — skorga hissa qo'shmaydigan keng tarqalgan so'zlar
+// To'xtash so'zlari — mazmun tashimaydiganlar
 const STOP = new Set([
-  'va', 'yoki', 'uchun', 'bilan', 'ham', 'bu', 'shu', 'nima', 'qanday',
-  'qancha', 'kerak', 'kerakmi', 'mumkin', 'mumkinmi', 'bo', 'boladi',
-  'boladimi', 'men', 'meni', 'mening', 'siz', 'sizga', 'agar', 'the',
-  'a', 'is', 'to', 'i', 'can', 'how', 'what', 'do', 'и', 'в', 'на', 'что',
-  'как', 'ли', 'мне', 'я',
+  'va', 'yoki', 'uchun', 'bilan', 'ham', 'bu', 'shu', 'ushbu', 'mazkur',
+  'nima', 'qanday', 'qancha', 'qachon', 'nechta', 'necha', 'kerak',
+  'kerakmi', 'mumkin', 'mumkinmi', 'bo', "bo'lsa", "bo'ladi", "bo'ladimi",
+  'boladi', 'boladimi', 'bolsa', 'men', 'meni', 'mening', 'menga', 'siz',
+  'sizga', 'agar', 'yana', 'esa', 'edi', 'emas', 'haqida', 'togrisida',
+  "to'g'risida", 'boyicha', "bo'yicha", 'the', 'a', 'is', 'to', 'i', 'can',
+  'how', 'what', 'do', 'и', 'в', 'на', 'что', 'как', 'ли', 'мне', 'я', 'можно',
 ]);
+
+// Konservativ o'zbekcha suffiks qisqartirish — "telefonni/telefonda/telefonlar"
+// bir xil o'zakka kelishi uchun. O'zak kamida 4 belgi qoladi.
+const SUFFIXES = [
+  'larimizni', 'laringiz', 'larining', 'lariga', 'larida', 'laridan',
+  'larini', 'larning', 'larni', 'larga', 'larda', 'lardan', 'lari', 'lar',
+  'ning', 'imizni', 'ingiz', 'lariga', 'sining', 'sini', 'siga', 'sida',
+  'sidan', 'si', 'ni', 'ga', 'da', 'dan', 'ini', 'iga', 'ida', 'idan', 'i',
+];
+
+function stem(t) {
+  let s = t;
+  let changed = true;
+  let guard = 0;
+  while (changed && guard < 3) {
+    changed = false;
+    guard += 1;
+    for (const suf of SUFFIXES) {
+      if (s.length - suf.length >= 4 && s.endsWith(suf)) {
+        s = s.slice(0, -suf.length);
+        changed = true;
+        break;
+      }
+    }
+  }
+  return s;
+}
 
 function tokens(s) {
   return normalize(s)
-    .split(' ')
-    .filter((t) => t.length >= 2 && !STOP.has(t));
+    .split(/[\s-]+/)
+    .filter((t) => t.length >= 2 && !STOP.has(t))
+    .map(stem);
 }
 
-// ── Indeksni oldindan tayyorlash ────────────────────────────────
-const QA_INDEX = QA.map((item) => {
-  const keyPhrases = (item.kalit_sozlar || []).map(normalize).filter(Boolean);
-  const questionText = [item.savol, ...(item.savol_variantlari || [])].join(' ');
-  const tokenBag = new Set([
-    ...tokens(questionText),
-    ...keyPhrases.flatMap((p) => p.split(' ')),
-    ...tokens(item.kategoriya),
-  ]);
-  return { item, keyPhrases, questionNorm: normalize(questionText), tokenBag };
+// So'zlashuv so'zlari → hujjat terminlariga kengaytirish
+const SYNONYMS = {
+  aeroport: ['havo', 'transport'],
+  samolyot: ['havo', 'transport'],
+  limit: ['norma', 'miqdoriy'],
+  summa: ['norma', 'qiymat'],
+  telefon: ['mobil', 'telefon'],
+  smartfon: ['mobil', 'telefon'],
+  ayfon: ['mobil', 'telefon'],
+  iphone: ['mobil', 'telefon'],
+  pul: ['valyuta', 'naqd'],
+  dollar: ['valyuta', 'naqd', 'aqsh'],
+  som: ['valyuta', 'naqd', 'milliy'],
+  evro: ['valyuta', 'naqd'],
+  aroq: ['alkogol', 'spirtli'],
+  vino: ['alkogol', 'spirtli'],
+  pivo: ['alkogol', 'pivo'],
+  ichimlik: ['alkogol', 'spirtli'],
+  sigaret: ['tamaki', 'sigaret'],
+  sigareta: ['tamaki', 'sigaret'],
+  chekish: ['tamaki'],
+  nos: ['tamaki'],
+  dori: ['dori'],
+  oltin: ['zargarlik', 'qimmatbaho', 'oltin'],
+  kumush: ['zargarlik', 'qimmatbaho', 'kumush'],
+  taqinchoq: ['zargarlik', 'qimmatbaho'],
+  mashina: ['transport', 'avtotransport'],
+  avtomobil: ['transport', 'avtotransport'],
+  it: ['hayvon'],
+  mushuk: ['hayvon'],
+  quroll: ['qurol'],
+  miltiq: ['qurol'],
+  pichoq: ['qurol', 'sovuq'],
+  yolak: ["yo'lak"],
+  koridor: ["yo'lak"],
+  bagaj: ['bagaj', 'yuk'],
+  chemodan: ['bagaj', 'yuk'],
+  posilka: ['pochta', 'kuryerlik'],
+};
+
+function expand(qTokens) {
+  const out = new Set(qTokens);
+  for (const t of qTokens) {
+    const syn = SYNONYMS[t];
+    if (syn) syn.map(stem).forEach((x) => out.add(x));
+  }
+  return [...out];
+}
+
+// ── Indeks: har bo'lak uchun token chastotalari + IDF ───────────
+const INDEX = KB.map((item) => {
+  const titleTf = new Map();
+  for (const t of tokens(item.sarlavha)) titleTf.set(t, (titleTf.get(t) || 0) + 1);
+  const bodyTf = new Map();
+  for (const t of tokens(item.matn)) bodyTf.set(t, (bodyTf.get(t) || 0) + 1);
+  const len = Math.max(20, item.matn.length / 6); // taxminiy so'z soni
+  return { item, titleTf, bodyTf, lenNorm: 1 / (1 + Math.log(1 + len / 80)) };
 });
 
-// Qo'shimcha jadvallar (bilim bazasi, taqiqlangan tovarlar) uchun juda umumiy
-// bojxona so'zlari — bular yolg'iz o'zi mos kelsa, aniq mavzuni bildirmaydi.
-const DOMAIN_STOP = new Set([
-  'olib', 'kirish', 'chiqish', 'kirsa', 'chiqsa', 'kiradi', 'chiqadi',
-  'deklaratsiya', 'deklaratsiyalash', 'boj', 'bojxona', 'bojsiz', 'tovar',
-  'tovarlar', 'norma', 'normasi', 'normalar', 'toʻlov', 'tolov', 'shaxsiy',
-  'olibkirish', 'aeroport', 'chegara', 'qiymati', 'qiymat',
-]);
-
-const KB_INDEX = KB.map((item) => ({
-  item,
-  titleBag: new Set(tokens(item.sarlavha)),
-  bodyBag: new Set([...tokens(item.matn), ...tokens(item.kategoriya)]),
-}));
+const DF = new Map();
+for (const e of INDEX) {
+  const seen = new Set([...e.titleTf.keys(), ...e.bodyTf.keys()]);
+  for (const t of seen) DF.set(t, (DF.get(t) || 0) + 1);
+}
+const N_DOCS = INDEX.length;
+// idf^1.5 — kam uchraydigan (aniq mavzuli) so'zlar ustunlik qiladi:
+// "guruch" kabi tovar nomi "olib/kirish" kabi umumiy so'zlardan kuchli
+const idf = (t) => Math.pow(Math.log(1 + N_DOCS / (1 + (DF.get(t) || 0))), 1.5);
 
 const PROHIBITED_INDEX = PROHIBITED.map((item) => ({
   item,
@@ -70,31 +142,39 @@ const PROHIBITED_INDEX = PROHIBITED.map((item) => ({
   bodyBag: new Set(tokens(item.cheklov_ruxsat_istisno)),
 }));
 
-// ── Skorlash ────────────────────────────────────────────────────
-function scoreQA(entry, qNorm, qTokens) {
+// Umumiy bojxona so'zlari — yolg'iz o'zi tovar jadvalini "ochmasin"
+const DOMAIN_STOP = new Set(
+  ['olib', 'kirish', 'chiqish', 'kir', 'chiq', 'deklaratsiya', 'boj',
+    'bojxona', 'bojsiz', 'tovar', 'norma', 'normasi', 'miqdor', 'shaxs',
+    'jismoniy', 'chegara', 'punkt', 'respublika', 'ozbekiston',
+  ].map(stem),
+);
+
+function scoreChunk(entry, qTokens) {
   let score = 0;
-  // Kalit so'z iborasi to'liq savolda uchrasa — kuchli signal
-  for (const kp of entry.keyPhrases) {
-    if (!kp) continue;
-    if (qNorm.includes(kp)) score += 6 + kp.split(' ').length * 2;
-  }
-  // Token kesishmasi
+  let hits = 0;
+  let titleHits = 0;
   for (const t of qTokens) {
-    if (entry.tokenBag.has(t)) score += 2;
-    // qisman moslik (raqamlar/o'zaklar): "telefon"~"telefonni"
-    else if (t.length >= 4) {
-      for (const bt of entry.tokenBag) {
-        if (bt.length >= 4 && (bt.startsWith(t) || t.startsWith(bt))) { score += 1; break; }
-      }
+    const w = idf(t);
+    const inTitle = entry.titleTf.get(t) || 0;
+    const inBody = entry.bodyTf.get(t) || 0;
+    if (inTitle || inBody) hits += 1;
+    if (inTitle) {
+      // sarlavha bonusi faqat aniq mavzuli (kam uchraydigan) so'zlarga —
+      // "olib/kirish" kabi umumiy so'z sarlavhani sun'iy ko'tarmasin
+      const rare = (DF.get(t) || 0) / N_DOCS < 0.28;
+      score += w * (rare ? 2.2 : 1.0) * Math.min(2, inTitle);
+      if (rare) titleHits += 1;
     }
+    if (inBody) score += w * Math.min(2.5, inBody);
   }
-  return score;
+  if (hits === 0) return { s: 0, hits: 0, titleHits: 0 };
+  // kamida ikkita turli so'z mos kelsa ishonch ortadi
+  const cover = hits / Math.max(2, qTokens.length);
+  return { s: score * entry.lenNorm * (0.6 + 0.6 * cover), hits, titleHits };
 }
 
-// Qo'shimcha jadval yozuvini baholaydi. Faqat sarlavha/tovar nomida
-// aniq (umumiy bo'lmagan) so'z mos kelsagina yozuvni nomzod deb hisoblaymiz —
-// shu tarzda "olib kirish" kabi umumiy so'zlar noto'g'ri moslik bermaydi.
-function scoreEntry(entry, qTokens) {
+function scoreProhibited(entry, qTokens) {
   let titleHit = false;
   let score = 0;
   for (const t of qTokens) {
@@ -106,46 +186,46 @@ function scoreEntry(entry, qTokens) {
 }
 
 // ── Asosiy funksiya ─────────────────────────────────────────────
-// Qaytaradi: { found, query, category, answer, legal, related[], kb[], prohibited[] }
+// Qaytadi: { found, query, category, title, answer, legal, url,
+//            related[], kb[], prohibited[] }
 export function answerQuestion(query) {
-  const qNorm = normalize(query);
-  const qTokens = [...new Set(tokens(query))];
+  const raw = [...new Set(tokens(query))];
+  if (raw.length === 0) return { found: false, query, reason: 'empty' };
+  const qTokens = expand(raw);
 
-  if (qTokens.length === 0) {
-    return { found: false, query, reason: 'empty', suggestions: popularQuestions() };
-  }
-
-  const ranked = QA_INDEX
-    .map((e) => ({ e, s: scoreQA(e, qNorm, qTokens) }))
+  const ranked = INDEX
+    .map((e) => {
+      const r = scoreChunk(e, qTokens);
+      return { e, s: r.s, hits: r.hits, titleHits: r.titleHits };
+    })
+    .filter((r) => r.s > 0)
     .sort((a, b) => b.s - a.s);
 
   const best = ranked[0];
-  // Ishonch chegarasi: eng yaxshi natija juda past bo'lsa — "topilmadi"
-  const MIN = 3;
-  if (!best || best.s < MIN) {
-    return { found: false, query, reason: 'no_match', suggestions: popularQuestions() };
-  }
+  const MIN = 1.15;
+  // Ishonch sharti: yetarli ball VA (kamida 2 xil so'z mosligi YOKI
+  // sarlavhada kuchli moslik). Bitta tasodifiy so'z mosligi javob emas.
+  const confident = best && best.s >= MIN &&
+    (best.hits >= 2 || (best.titleHits >= 1 && best.s >= MIN * 1.6));
+  if (!confident) return { found: false, query, reason: 'no_match' };
 
   const item = best.e.item;
 
-  // Shu kategoriyadagi yoki keyingi eng yaqin savollar — bog'liq savollar
-  const related = ranked
-    .slice(1)
-    .filter((r) => r.s >= Math.max(MIN, best.s * 0.35))
-    .slice(0, 3)
-    .map((r) => ({ id: r.e.item.id, savol: r.e.item.savol }));
+  // Qo'shimcha: keyingi eng mos bo'laklar (boshqa sarlavhalardan)
+  const extras = [];
+  for (const r of ranked.slice(1)) {
+    if (extras.length >= 2) break;
+    if (r.s < Math.max(MIN, best.s * 0.45)) break;
+    if (r.e.item.sarlavha.split(' (davomi')[0] === item.sarlavha.split(' (davomi')[0]) continue;
+    extras.push(r.e.item);
+  }
 
-  // Qo'shimcha kontekst: mos bilim bo'laklari (sarlavhada aniq moslik shart)
-  const kb = KB_INDEX
-    .map((e) => ({ e, s: scoreEntry(e, qTokens) }))
-    .filter((r) => r.s >= 3)
-    .sort((a, b) => b.s - a.s)
-    .slice(0, 2)
-    .map((r) => r.e.item);
+  // Tegishli bo'lak sarlavhalari — chip sifatida qayta so'rash uchun
+  const related = extras.slice(0, 3).map((x) => ({ id: x.id, savol: x.sarlavha }));
 
-  // Taqiqlangan tovarlar jadvalidan mos yozuvlar (tovar nomida aniq moslik shart)
+  // Taqiqlangan/cheklangan tovarlar jadvalidan mos yozuvlar
   const prohibited = PROHIBITED_INDEX
-    .map((e) => ({ e, s: scoreEntry(e, qTokens) }))
+    .map((e) => ({ e, s: scoreProhibited(e, qTokens) }))
     .filter((r) => r.s >= 3)
     .sort((a, b) => b.s - a.s)
     .slice(0, 2)
@@ -154,30 +234,33 @@ export function answerQuestion(query) {
   return {
     found: true,
     query,
-    id: item.id,
-    category: item.kategoriya,
-    question: item.savol,
-    answer: item.javob,
-    legal: item.huquqiy_manba,
+    category: item.manba.split(',')[0],
+    title: item.sarlavha,
+    answer: item.matn,
+    legal: `${item.sarlavha} · ${item.hujjat}`,
+    url: item.url || '',
     related,
-    kb,
+    kb: extras.slice(0, 2),
     prohibited,
   };
 }
 
-// Savolni id bo'yicha to'g'ridan-to'g'ri olish (bog'liq savol chiplari uchun)
-export function answerById(id) {
-  const entry = QA.find((x) => x.id === id);
-  if (!entry) return { found: false, reason: 'no_match', suggestions: popularQuestions() };
-  return answerQuestion(entry.savol);
-}
+export const STATS = { kb: KB.length, prohibited: PROHIBITED.length };
 
-// Bosh sahifada/topilmaganda ko'rsatiladigan mashhur savollar
-export function popularQuestions() {
-  const ids = ['QA-001', 'QA-010', 'QA-014', 'QA-020', 'QA-006', 'QA-008'];
-  const picked = ids.map((id) => QA.find((x) => x.id === id)).filter(Boolean);
-  const list = picked.length ? picked : QA.slice(0, 6);
-  return list.map((x) => ({ id: x.id, savol: x.savol }));
+// Sozlash/diagnostika uchun: savol bo'yicha eng yuqori ballar
+export function debugScores(query, topN = 5) {
+  const raw = [...new Set(tokens(query))];
+  const qTokens = expand(raw);
+  return {
+    qTokens,
+    top: INDEX
+      .map((e) => ({ e, ...scoreChunk(e, qTokens) }))
+      .filter((r) => r.s > 0)
+      .sort((a, b) => b.s - a.s)
+      .slice(0, topN)
+      .map((r) => ({
+        id: r.e.item.id, sarlavha: r.e.item.sarlavha,
+        s: +r.s.toFixed(2), hits: r.hits, titleHits: r.titleHits,
+      })),
+  };
 }
-
-export const STATS = { qa: QA.length, kb: KB.length, prohibited: PROHIBITED.length };
